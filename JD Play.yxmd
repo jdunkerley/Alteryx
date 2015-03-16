@@ -1,0 +1,482 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="9.5">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>PL By Trader Label Data.xlsx
+Table=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Trader" size="255" source="File: R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`" type="V_String" />
+            <Field name="GroupName" size="255" source="File: R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`" type="V_String" />
+            <Field name="LabelName" size="255" source="File: R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`" type="V_String" />
+            <Field name="Bloomberg" size="255" source="File: R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`" type="V_String" />
+            <Field name="DateValue" source="File: R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`" type="Date" />
+            <Field name="SpottedPL" source="File: R:\Data\Tableau\PL By Trader Label Data.xlsx|`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="570" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\DUNKER~1\AppData\Local\Temp\2\Engine_1852_ad4aa11011254dbbab5bf044f5e357df\Engine_4004_61dc3020dbb04d639f7a9eab536c211c.yxdb</TempFile>
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Table</DefaultTab>
+              <Hints />
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=HALSQL-Positions|Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=HALSQL-Positions
+Table=Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="Date" source="File: odbc:DSN=HALSQL-Positions|Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'" type="Date" />
+            <Field description="PrimaryKey" name="StrategyID" source="File: odbc:DSN=HALSQL-Positions|Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'" type="Int16" />
+            <Field description="PrimaryKey" name="SecID" source="File: odbc:DSN=HALSQL-Positions|Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'" type="Int32" />
+            <Field name="GroupName" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'" type="V_String" />
+            <Field name="LabelName" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * FROM Positions..CapStructHistory WHERE Date &gt;= '2014-01-01'" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=HALSQL-Positions|Select Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID, Sum(Positions.Position) As Position From Traders Inner Join Strategies On Traders.TraderID = Strategies.TraderID Inner Join Positions On Strategies.StrategyID = Positions.StrategyID Where Traders.Office = 'London' And Positions.LADDER_DATE &gt;= '2014-01-01' And Positions.AssetLadderTypeID != 21 Group By Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=HALSQL-Positions
+Table=Select Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID, Sum(Positions.Position) As Position From Traders Inner Join Strategies On Traders.TraderID = Strategies.TraderID Inner Join Positions On Strategies.StrategyID = Positions.StrategyID Where Traders.Office = 'London' And Positions.LADDER_DATE &gt;= '2014-01-01' And Positions.AssetLadderTypeID != 21 Group By Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="LADDER_DATE" source="File: odbc:DSN=HALSQL-Positions|Select Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID, Sum(Positions.Position) As Position From Traders Inner Join Strategies On Traders.TraderID = Strategies.TraderID Inner Join Positions On Strategies.StrategyID = Positions.StrategyID Where Traders.Office = 'London' And Positions.LADDER_DATE &gt;= '2014-01-01' And Positions.AssetLadderTypeID != 21 Group By Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID" type="Date" />
+            <Field name="StrategyID" source="File: odbc:DSN=HALSQL-Positions|Select Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID, Sum(Positions.Position) As Position From Traders Inner Join Strategies On Traders.TraderID = Strategies.TraderID Inner Join Positions On Strategies.StrategyID = Positions.StrategyID Where Traders.Office = 'London' And Positions.LADDER_DATE &gt;= '2014-01-01' And Positions.AssetLadderTypeID != 21 Group By Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID" type="Int16" />
+            <Field name="SecID" source="File: odbc:DSN=HALSQL-Positions|Select Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID, Sum(Positions.Position) As Position From Traders Inner Join Strategies On Traders.TraderID = Strategies.TraderID Inner Join Positions On Strategies.StrategyID = Positions.StrategyID Where Traders.Office = 'London' And Positions.LADDER_DATE &gt;= '2014-01-01' And Positions.AssetLadderTypeID != 21 Group By Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID" type="Int32" />
+            <Field name="Position" source="File: odbc:DSN=HALSQL-Positions|Select Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID, Sum(Positions.Position) As Position From Traders Inner Join Strategies On Traders.TraderID = Strategies.TraderID Inner Join Positions On Strategies.StrategyID = Positions.StrategyID Where Traders.Office = 'London' And Positions.LADDER_DATE &gt;= '2014-01-01' And Positions.AssetLadderTypeID != 21 Group By Positions.LADDER_DATE, Positions.StrategyID, Positions.SecID" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="678" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\DUNKER~1\AppData\Local\Temp\2\Engine_1852_ad4aa11011254dbbab5bf044f5e357df\Engine_4004_72ab27db50424226aba7c39efaf5617d.yxdb</TempFile>
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Table</DefaultTab>
+              <Hints />
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="162" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Date" />
+            <Field field="StrategyID" />
+            <Field field="SecID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="LADDER_DATE" />
+            <Field field="StrategyID" />
+            <Field field="SecID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Right_LADDER_DATE" selected="False" rename="Right_LADDER_DATE" />
+                <SelectField field="Right_StrategyID" selected="False" rename="Right_StrategyID" />
+                <SelectField field="Right_SecID" selected="False" rename="Right_SecID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=HALSQL-Positions
+Table=Select * From SM.dbo.vSecurityBasic</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="SecID" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="Int32" />
+            <Field name="CCY" size="3" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="WString" />
+            <Field name="SecType" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="Name" size="150" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="NameKanji" size="150" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_WString" />
+            <Field name="SecID_CFD" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="Int32" />
+            <Field name="CCY_CFD" size="3" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="WString" />
+            <Field name="SecType_CFD" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="BloombergID" size="200" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_WString" />
+            <Field name="OptRatio" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="Double" />
+            <Field name="SecID_Opt" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="Int32" />
+            <Field name="CCY_Opt" size="3" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="WString" />
+            <Field name="SecType_Opt" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="BloombergID_Opt" size="200" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_WString" />
+            <Field name="BBG_Sector" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="BBG_IndustryGroup" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="BBG_IndustrySubGroup" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="GICS_Sector" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="GICS_IndustryGroup" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="GICS_Industry" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="GICS_SubIndustry" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="TSE_Industry" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="Country" size="250" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="ExchangeCode" size="5" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="V_String" />
+            <Field name="LastTrade" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="DateTime" />
+            <Field name="Value1Pt" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="Double" />
+            <Field name="Value1Pt_Opt" source="File: odbc:DSN=HALSQL-Positions|Select * From SM.dbo.vSecurityBasic" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="306" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="SecID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="SecID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Left_Date" selected="True" />
+                <SelectField field="Left_StrategyID" selected="True" />
+                <SelectField field="Left_SecID" selected="False" />
+                <SelectField field="Left_GroupName" selected="True" />
+                <SelectField field="Left_LabelName" selected="True" />
+                <SelectField field="Right_BloombergID" selected="True" />
+                <SelectField field="Left_Position" selected="True" />
+                <SelectField field="Right_SecID" selected="False" rename="Right_SecID" />
+                <SelectField field="Right_BloombergID_Opt" selected="False" />
+                <SelectField field="Right_CCY" selected="False" />
+                <SelectField field="Right_SecType" selected="False" />
+                <SelectField field="Right_Name" selected="False" />
+                <SelectField field="Right_NameKanji" selected="False" />
+                <SelectField field="Right_SecID_CFD" selected="False" />
+                <SelectField field="Right_CCY_CFD" selected="False" />
+                <SelectField field="Right_SecType_CFD" selected="False" />
+                <SelectField field="Right_OptRatio" selected="False" />
+                <SelectField field="Right_SecID_Opt" selected="False" />
+                <SelectField field="Right_CCY_Opt" selected="False" />
+                <SelectField field="Right_SecType_Opt" selected="False" />
+                <SelectField field="Right_BBG_Sector" selected="False" />
+                <SelectField field="Right_BBG_IndustryGroup" selected="False" />
+                <SelectField field="Right_BBG_IndustrySubGroup" selected="False" />
+                <SelectField field="Right_GICS_Sector" selected="False" />
+                <SelectField field="Right_GICS_IndustryGroup" selected="False" />
+                <SelectField field="Right_GICS_Industry" selected="False" />
+                <SelectField field="Right_GICS_SubIndustry" selected="False" />
+                <SelectField field="Right_TSE_Industry" selected="False" />
+                <SelectField field="Right_Country" selected="False" />
+                <SelectField field="Right_ExchangeCode" selected="False" />
+                <SelectField field="Right_LastTrade" selected="False" />
+                <SelectField field="Right_Value1Pt" selected="False" />
+                <SelectField field="Right_Value1Pt_Opt" selected="False" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=HALSQL-Positions
+Table=Select * from Positions..vAllowedStrategies</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="StrategyID" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="Int16" />
+            <Field name="Strategy" size="18" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="V_String" />
+            <Field name="TrueTraderID" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="Int16" />
+            <Field name="TrueTrader" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="V_String" />
+            <Field name="TraderID" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="Int16" />
+            <Field name="Trader" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="V_String" />
+            <Field name="Team" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="V_String" />
+            <Field name="Office" size="12" source="File: odbc:DSN=HALSQL-Positions|Select * from Positions..vAllowedStrategies" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="438" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="StrategyID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="StrategyID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Left_Date" selected="True" />
+                <SelectField field="Left_StrategyID" selected="False" />
+                <SelectField field="Right_Trader" selected="True" />
+                <SelectField field="Left_GroupName" selected="True" />
+                <SelectField field="Left_LabelName" selected="True" />
+                <SelectField field="Left_BloombergID" selected="True" />
+                <SelectField field="Left_Position" selected="True" />
+                <SelectField field="Right_StrategyID" selected="False" rename="Right_StrategyID" />
+                <SelectField field="Right_Strategy" selected="False" />
+                <SelectField field="Right_TrueTraderID" selected="False" />
+                <SelectField field="Right_TrueTrader" selected="False" />
+                <SelectField field="Right_TraderID" selected="False" />
+                <SelectField field="Right_Team" selected="False" />
+                <SelectField field="Right_Office" selected="False" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="522" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field />
+            <Operator>=</Operator>
+            <Operands>
+              <Operand />
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Join" />
+      <Destination ToolID="9" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Join" />
+      <Destination ToolID="11" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Join" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>JD Play</Name>
+      <Description />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
