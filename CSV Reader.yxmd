@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="9.5">
+  <Nodes>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="714" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3640_96bb13fd499947b58eac9db8a9db378a\Engine_1952_94164fc329fc43f9b6f37832878b4181.yxdb</TempFile>
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Table</DefaultTab>
+              <Hints />
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Column Table</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="29.99998" y="534" width="637" height="216" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Add Date and Pivot</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ecf2f2" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="52">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="54.99998" y="614" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>Field</Field>
+                <Operator>=</Operator>
+                <Operands>
+                  <Operand>Date</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Field] = "Date"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="53">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="271" y="614" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="FileName" />
+                <Field field="_Row" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="FileName" />
+                <Field field="_Row" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <SelectFields>
+                    <SelectField field="Left_FileName" selected="True" />
+                    <SelectField field="Right__Row" selected="False" />
+                    <SelectField field="Right__Column" selected="True" />
+                    <SelectField field="Left__Row" selected="False" />
+                    <SelectField field="Left__Column" selected="False" />
+                    <SelectField field="Right_FileName" selected="False" rename="Right_FileName" />
+                    <SelectField field="Left_Field" selected="False" rename="Left_Field" />
+                    <SelectField field="Left_Value" selected="True" rename="Date" />
+                    <SelectField field="Right_Field" selected="True" />
+                    <SelectField field="Right_Value" selected="True" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Join FileName, Row</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="54">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="367" y="614" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="FileName" order="Ascending" />
+                <Field field="Date" order="Ascending" />
+                <Field field="_Column" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Sort by File, 
+Date, Column</AnnotationText>
+              <DefaultAnnotationText>FileName - Ascending
+Date - Ascending
+_Column - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="463" y="614" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="FileName" />
+                <Field field="Date" />
+              </GroupFields>
+              <HeaderField field="Field" />
+              <DataField field="Value" />
+              <Methods>
+                <Method method="Sum" />
+              </Methods>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Pivot Field, Value</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="FileName" size="37" source="CrossTab:Group:Sum:" type="String" />
+                <Field description="TextToColumns: Parsed from DownloadData" name="Date" source="CrossTab:Group:Sum:" type="Date" />
+                <Field name="Adj_Close" source="CrossTab:Header:Field:Adj Close:Sum:" type="Double" />
+                <Field name="Close" source="CrossTab:Header:Field:Close:Sum:" type="Double" />
+                <Field name="High" source="CrossTab:Header:Field:High:Sum:" type="Double" />
+                <Field name="Low" source="CrossTab:Header:Field:Low:Sum:" type="Double" />
+                <Field name="Open" source="CrossTab:Header:Field:Open:Sum:" type="Double" />
+                <Field name="Volume" source="CrossTab:Header:Field:Volume:Sum:" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="FileName" order="Asc" />
+                <Field field="Date" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="56">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="583" y="614" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="FileName" selected="True" />
+                <SelectField field="Date" selected="True" />
+                <SelectField field="Open" selected="True" />
+                <SelectField field="Close" selected="True" />
+                <SelectField field="High" selected="True" />
+                <SelectField field="Low" selected="True" />
+                <SelectField field="Adj_Close" selected="True" />
+                <SelectField field="Volume" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Field
+Order</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="163" y="578" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Value" selected="True" type="Date" size="10" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Cast to Date</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="163" y="650" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Value" selected="True" type="Double" size="8" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Cast to Double</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="174" y="354" width="381" height="160" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Add Field Name</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ecf2f2" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="199" y="398" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>_Row</Field>
+                <Operator>=</Operator>
+                <Operands>
+                  <Operand>1</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[_Row] = 1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="319" y="398" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="FileName" />
+                <Field field="_Column" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="FileName" />
+                <Field field="_Column" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <SelectFields>
+                    <SelectField field="Left_FileName" selected="True" />
+                    <SelectField field="Right__Row" selected="True" />
+                    <SelectField field="Right__Column" selected="True" />
+                    <SelectField field="Left_DownloadData" selected="True" rename="Field" />
+                    <SelectField field="Right_DownloadData" selected="True" rename="Value" />
+                    <SelectField field="Left__Row" selected="False" />
+                    <SelectField field="Left__Column" selected="False" />
+                    <SelectField field="Right_FileName" selected="False" rename="Right_FileName" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Join FileName, Column</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="427" y="398" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="FileName" order="Ascending" />
+                <Field field="_Row" order="Ascending" />
+                <Field field="_Column" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Sort by File, Row, Column</AnnotationText>
+              <DefaultAnnotationText>FileName - Ascending
+_Row - Ascending
+_Column - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="78" y="30" width="142.9655" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Read files into fields</Caption>
+          <Style TextColor="#ffffff" FillColor="#ffffff" BorderColor="#ffffff" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="103" y="74" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="2" />
+              <Fields>
+                <Field name="FileName" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>R:\Data\Tableau\JD Learning\table.csv</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>FileNames</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="390" y="186" width="215" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Split to Columns</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ffffd2" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="415" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>DownloadData</Field>
+              <NumFields value="1" />
+              <Delimeters value="," />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+            <Position x="499" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UpdateField value="False" />
+              <UpdateField_Name>FileName</UpdateField_Name>
+              <CreateField_Name>_Column</CreateField_Name>
+              <CreateField_Type>Int32</CreateField_Type>
+              <CreateField_Size>254</CreateField_Size>
+              <OtherRows>Empty</OtherRows>
+              <NumRows value="1" />
+              <Expression>IIF([Row-1:FileName]=[FileName] AND [Row-1:_Row]=[_Row],[Row-1:_Column],0)+1</Expression>
+              <GroupByFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add _Column</AnnotationText>
+              <DefaultAnnotationText>IIF([Row-1:FileName]=[FileName] AND [Row-1:_Row]=[_Row],[Row-...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="66" y="186" width="305" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Split to Rows</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ffffd2" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="91" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>DownloadData</Field>
+              <NumFields value="1" />
+              <Delimeters value="\n" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+            <Position x="175" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields orderChanged="False">
+                <Field name="FileName" />
+              </GroupFields>
+              <Mode>Skip</Mode>
+              <N>2</N>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Skip 1st 2</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+            <Position x="283" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UpdateField value="False" />
+              <UpdateField_Name>FileName</UpdateField_Name>
+              <CreateField_Name>_Row</CreateField_Name>
+              <CreateField_Type>Int32</CreateField_Type>
+              <CreateField_Size>254</CreateField_Size>
+              <OtherRows>Empty</OtherRows>
+              <NumRows value="1" />
+              <Expression>IIF([Row-1:FileName]=[FileName],[Row-1:_Row],0)+1</Expression>
+              <GroupByFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add _Row</AnnotationText>
+              <DefaultAnnotationText>IIF([Row-1:FileName]=[FileName],[Row-1:_Row],0)+1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="270" y="30" width="325" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Read files into fields</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#caffca" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="403" y="74" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues />
+                <Fields orderChanged="False">
+                  <Field name="FileName" selected="False" />
+                  <Field name="URL" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="FileName" selected="False" />
+                  <Field name="URL" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <UserName />
+              <Password />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="295" y="74" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="URL" type="V_WString" size="1024" expression="iif(FindString([FileName],&quot;://&quot;)!=-1,[FileName],&#xA;   iif(Left([FileName],2)=&quot;\\&quot;,&quot;file:&quot;,&quot;file:///&quot;) + Replace([FileName], '\', &quot;/&quot;))" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Make URLs</AnnotationText>
+              <DefaultAnnotationText>URL=iif(FindString([FileName],"://")!=-1,[FileName],
+   iif(L...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="511" y="74" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="FileName" selected="True" />
+                <SelectField field="DownloadData" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="52" Connection="True" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="False" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Join" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="53" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="53" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="True" />
+      <Destination ToolID="30" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="False" />
+      <Destination ToolID="30" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Join" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>CSV Reader</Name>
+      <Description />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
