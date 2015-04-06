@@ -1,305 +1,9 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="9.5">
   <Nodes>
-    <Node ToolID="1">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="66" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <NumRows value="4" />
-          <Fields>
-            <Field name="URLs" />
-          </Fields>
-          <Data>
-            <r>
-              <c>https://uk.finance.yahoo.com/q/cp?s=^FTSE</c>
-            </r>
-            <r>
-              <c>https://uk.finance.yahoo.com/q/cp?s=^FTSE&amp;c=1</c>
-            </r>
-            <r>
-              <c>https://uk.finance.yahoo.com/q/cp?s=^FTSE&amp;c=2</c>
-            </r>
-          </Data>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
-    </Node>
-    <Node ToolID="2">
-      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="150" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <URLField>URLs</URLField>
-          <OutputMode>String</OutputMode>
-          <CodePage>65001</CodePage>
-          <EncodeURLs value="True" />
-          <Headers>
-            <NameValues />
-            <Fields orderChanged="False">
-              <Field name="URLs" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </Fields>
-          </Headers>
-          <Payload>
-            <HTTPAction>GET</HTTPAction>
-            <QueryStringBodyMode>Compose</QueryStringBodyMode>
-            <ComposeNameValues />
-            <ComposeFields orderChanged="False">
-              <Field name="URLs" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </ComposeFields>
-          </Payload>
-          <UserName />
-          <Password />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Download Web Pages</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
-    </Node>
-    <Node ToolID="3">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="258" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="DownloadData" selected="True" rename="Data" />
-            <SelectField field="*Unknown" selected="False" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Select only Data</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="4">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="354" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Field>Data</Field>
-          <RegExExpression value="href=&quot;/q\?s=([^&quot;]*)&quot;" />
-          <CaseInsensitve value="True" />
-          <Method>ParseSimple</Method>
-          <Replace expression="">
-            <CopyUnmatched value="True" />
-          </Replace>
-          <ParseSimple>
-            <SplitToRows value="True" />
-          </ParseSimple>
-          <ParseComplex>
-            <Field field="RegExOut1" type="V_WString" size="1073741823" />
-          </ParseComplex>
-          <Match>
-            <Field>Data_Matched</Field>
-            <ErrorUnmatched value="False" />
-          </Match>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Tokenize:
-href="/q\?s=([^"]*)"</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
-    </Node>
-    <Node ToolID="5">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="618" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3580_ab367959421041b298e32c55c5932c52\Engine_1952_9123b620097c44d9af493465bb869a00.yxdb</TempFile>
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Table</DefaultTab>
-              <Hints />
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Tickers</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="6">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="450" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Field>Data</Field>
-            <Operator>!=</Operator>
-            <Operands>
-              <Operand>%5EFTSE</Operand>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>[Data] != "%5EFTSE"</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="150" y="198" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField field="Exch" type="V_String" size="64" expression="REGEX_Replace([Ticker],&quot;([^.]*)\.([^.]*)&quot;,&quot;$2&quot;)" />
-            <FormulaField field="Code" type="V_String" size="64" expression="REGEX_Replace([Ticker],&quot;([^.]*)\.([^.]*)&quot;,&quot;$1&quot;)" />
-            <FormulaField field="URL" type="V_String" size="256" expression="&quot;https://www.quandl.com/api/v1/datasets/YAHOO/&quot;+REGEX_Replace([Ticker],&quot;([^.]*)\.([^.]*)&quot;,&quot;$2_$1&quot;)+&quot;.csv?auth_token=&quot;+ReadRegistryString('HKEY_CURRENT_USER\Software\JDunkerley', 'QuandlKey')" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Create URL</AnnotationText>
-          <DefaultAnnotationText>Exch=REGEX_Replace([Ticker],"([^.]*)\.([^.]*)","$2")
-Code=REGEX_Replace([Ticker],"([^.]*)\.([^.]*)","$1")
-URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="618" y="198" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3580_ab367959421041b298e32c55c5932c52\Engine_1952_17a4f23f9cf74c2ebc42af63de8514a4.yxdb</TempFile>
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Table</DefaultTab>
-              <Hints />
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="9">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="66" y="198" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="Data" selected="True" rename="Ticker" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="10">
-      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="354" y="198" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <URLField>URL</URLField>
-          <OutputMode>String</OutputMode>
-          <CodePage>65001</CodePage>
-          <EncodeURLs value="True" />
-          <Headers>
-            <NameValues />
-            <Fields orderChanged="False">
-              <Field name="Ticker" selected="False" />
-              <Field name="URL" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </Fields>
-          </Headers>
-          <Payload>
-            <HTTPAction>GET</HTTPAction>
-            <QueryStringBodyMode>Compose</QueryStringBodyMode>
-            <ComposeNameValues />
-            <ComposeFields orderChanged="False">
-              <Field name="Ticker" selected="False" />
-              <Field name="URL" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </ComposeFields>
-          </Payload>
-          <UserName />
-          <Password />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
-    </Node>
-    <Node ToolID="11">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="258" y="198" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <GroupFields orderChanged="False" />
-          <Mode>First</Mode>
-          <N>1000</N>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>First 1000</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
-    </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="150" y="294" />
+        <Position x="78" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -316,31 +20,9 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
     </Node>
-    <Node ToolID="13">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="66" y="294" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="Ticker" selected="True" />
-            <SelectField field="URL" selected="True" />
-            <SelectField field="DownloadData" selected="True" rename="CSVData" />
-            <SelectField field="*Unknown" selected="False" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="258" y="294" />
+        <Position x="186" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -365,7 +47,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="354" y="294" />
+        <Position x="282" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -384,7 +66,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="462" y="294" />
+        <Position x="390" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -409,7 +91,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="558" y="294" />
+        <Position x="486" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -432,7 +114,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="654" y="294" />
+        <Position x="582" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -473,7 +155,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="150" y="390" />
+        <Position x="162" y="606" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -496,7 +178,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="258" y="366" />
+        <Position x="246" y="570" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -518,7 +200,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="258" y="414" />
+        <Position x="246" y="630" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -539,7 +221,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="354" y="390" />
+        <Position x="342" y="606" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -574,11 +256,11 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="558" y="390" />
+        <Position x="786" y="606" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3580_ab367959421041b298e32c55c5932c52\Engine_1952_0b2440ffa5c7495ca24c55d6c72a00bf.yxdb</TempFile>
+          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_1316_1edc7a6e0c454685aca443b2365a3297\Engine_800_e29ad628f2d34899893e0273f9d6ce53.yxdb</TempFile>
           <Layout>
             <ViewMode>Single</ViewMode>
             <ViewSize value="100" />
@@ -599,7 +281,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="462" y="390" />
+        <Position x="510" y="606" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -619,7 +301,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="558" y="450" />
+        <Position x="786" y="666" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -640,78 +322,591 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
-    <Node ToolID="27">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="450" y="198" />
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="582" y="606" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Field>DownloadHeaders</Field>
-            <Operator>NotContains</Operator>
-            <Operands>
-              <Operand>HTTP/1.1 200 OK</Operand>
-            </Operands>
-          </Simple>
+          <GroupFields>
+            <Field field="Ticker" />
+            <Field field="Date" />
+          </GroupFields>
+          <HeaderField field="Field" />
+          <DataField field="Value" />
+          <Methods>
+            <Method method="Sum" />
+          </Methods>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>FindString([DownloadHeaders],"HTTP/1.1 200 OK") = -1</DefaultAnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Ticker" size="1073741823" source="CrossTab:Group:Sum:" type="V_WString" />
+            <Field description="TextToColumns: Parsed from CSVData" name="Date" source="CrossTab:Group:Sum:" type="Date" />
+            <Field name="AdjustedClose" source="CrossTab:Header:Field:AdjustedClose:Sum:" type="Double" />
+            <Field name="Close" source="CrossTab:Header:Field:Close:Sum:" type="Double" />
+            <Field name="High" source="CrossTab:Header:Field:High:Sum:" type="Double" />
+            <Field name="Low" source="CrossTab:Header:Field:Low:Sum:" type="Double" />
+            <Field name="Open" source="CrossTab:Header:Field:Open:Sum:" type="Double" />
+            <Field name="Volume" source="CrossTab:Header:Field:Volume:Sum:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Ticker" order="Asc" />
+            <Field field="Date" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="666" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Ticker" selected="True" />
+            <SelectField field="Date" selected="True" />
+            <SelectField field="Open" selected="True" />
+            <SelectField field="High" selected="True" />
+            <SelectField field="Low" selected="True" />
+            <SelectField field="Close" selected="True" />
+            <SelectField field="AdjustedClose" selected="True" />
+            <SelectField field="Volume" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="426" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Field" type="V_WString" size="1073741823" expression="IIF(Left([Field],3)=&quot;Adj&quot;,&quot;AdjustedClose&quot;,[Field])" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Field=IIF(Left([Field],3)="Adj","AdjustedClose",[Field])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="41.99999" y="210" width="876" height="216" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Download Price Series</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ecf2f2" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="151" y="302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Exch" type="V_String" size="64" expression="REGEX_Replace([Ticker],&quot;([^.]*)\.([^.]*)&quot;,&quot;$2&quot;)" />
+                <FormulaField field="Code" type="V_String" size="64" expression="REGEX_Replace([Ticker],&quot;([^.]*)\.([^.]*)&quot;,&quot;$1&quot;)" />
+                <FormulaField field="URL" type="V_String" size="256" expression="&quot;https://www.quandl.com/api/v1/datasets/YAHOO/&quot;+[Exch]+&quot;_&quot;+[Code]+&quot;.csv?auth_token=&quot;+ReadRegistryString('HKEY_CURRENT_USER\Software\JDunkerley', 'QuandlKey')" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create URL</AnnotationText>
+              <DefaultAnnotationText>Exch=REGEX_Replace([Ticker],"([^.]*)\.([^.]*)","$2")
+Code=REGEX_Replace([Ticker],"([^.]*)\.([^.]*)","$1")
+URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="751" y="254" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_1316_1edc7a6e0c454685aca443b2365a3297\Engine_800_8e19a8866cf64285b28592ef6b20ba15.yxdb</TempFile>
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Table</DefaultTab>
+                  <Hints />
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="66.99999" y="302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Data" selected="True" rename="Ticker" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="235" y="302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues />
+                <Fields orderChanged="False">
+                  <Field name="Ticker" selected="False" />
+                  <Field name="Exch" selected="False" />
+                  <Field name="Code" selected="False" />
+                  <Field name="URL" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="Ticker" selected="False" />
+                  <Field name="Exch" selected="False" />
+                  <Field name="Code" selected="False" />
+                  <Field name="URL" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <UserName />
+              <Password />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="834" y="342" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Ticker" selected="True" />
+                <SelectField field="URL" selected="True" />
+                <SelectField field="DownloadData" selected="True" rename="CSVData" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="319" y="302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>DownloadHeaders</Field>
+                <Operator>NotContains</Operator>
+                <Operands>
+                  <Operand>HTTP/1.1 200 OK</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[Quandl Fails
+]]></AnnotationText>
+              <DefaultAnnotationText>FindString([DownloadHeaders],"HTTP/1.1 200 OK") = -1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="403" y="290" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="URL" type="V_String" size="256" expression="&quot;http://ichart.finance.yahoo.com/table.csv?s=&quot;+[Ticker]+&quot;&amp;d=31&amp;e=12&amp;f=2039&amp;g=d&amp;a=3&amp;b=7&amp;c=1902&amp;ignore=.csv&quot;" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create Yahoo URL</AnnotationText>
+              <DefaultAnnotationText>URL="http://ichart.finance.yahoo.com/table.csv?s="+[Ticker]+"...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="655" y="290" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>DownloadHeaders</Field>
+                <Operator>NotContains</Operator>
+                <Operands>
+                  <Operand>HTTP/1.1 200 OK</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Yahoo Fails</AnnotationText>
+              <DefaultAnnotationText>FindString([DownloadHeaders],"HTTP/1.1 200 OK") = -1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="750" y="342" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="487" y="290" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="DownloadData" selected="False" />
+                <SelectField field="DownloadHeaders" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="571" y="290" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues />
+                <Fields orderChanged="False">
+                  <Field name="Ticker" selected="False" />
+                  <Field name="Exch" selected="False" />
+                  <Field name="Code" selected="False" />
+                  <Field name="URL" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="Ticker" selected="False" />
+                  <Field name="Exch" selected="False" />
+                  <Field name="Code" selected="False" />
+                  <Field name="URL" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <UserName />
+              <Password />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="42" y="6" width="613" height="187" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Read FTSE Tickers</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ecf2f2" BorderColor="#2f4f4f" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="67" y="62.00002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="4" />
+              <Fields>
+                <Field name="URLs" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>https://uk.finance.yahoo.com/q/cp?s=^FTSE</c>
+                </r>
+                <r>
+                  <c>https://uk.finance.yahoo.com/q/cp?s=^FTSE&amp;c=1</c>
+                </r>
+                <r>
+                  <c>https://uk.finance.yahoo.com/q/cp?s=^FTSE&amp;c=2</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="151" y="61.99998" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URLs</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues />
+                <Fields orderChanged="False">
+                  <Field name="URLs" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="URLs" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <UserName />
+              <Password />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Download Web Pages</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="259" y="61.99999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="DownloadData" selected="True" rename="Data" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select only Data</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="355" y="62" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Data</Field>
+              <RegExExpression value="href=&quot;/q\?s=([^&quot;]*)&quot;" />
+              <CaseInsensitve value="True" />
+              <Method>ParseSimple</Method>
+              <Replace expression="">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="True" />
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="RegExOut1" type="V_WString" size="1073741823" />
+              </ParseComplex>
+              <Match>
+                <Field>Data_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Tokenize:
+href="/q\?s=([^"]*)"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="571" y="50" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_1316_1edc7a6e0c454685aca443b2365a3297\Engine_800_ea3aeae7d0714b8a962fbd9643ebc655.yxdb</TempFile>
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Table</DefaultTab>
+                  <Hints />
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Tickers</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="451" y="62" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>Data</Field>
+                <Operator>!=</Operator>
+                <Operands>
+                  <Operand>%5EFTSE</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Data] != "%5EFTSE"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
     </Node>
   </Nodes>
   <Connections>
     <Connection>
-      <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="2" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="3" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="3" Connection="Output" />
-      <Destination ToolID="4" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="4" Connection="Output" />
-      <Destination ToolID="6" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="True" />
-      <Destination ToolID="5" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="True" />
-      <Destination ToolID="9" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="7" Connection="Output" />
-      <Destination ToolID="11" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="9" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="27" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="11" Connection="Output" />
-      <Destination ToolID="10" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="12" Connection="Output" />
       <Destination ToolID="15" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="12" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="15" Connection="Output" />
@@ -755,23 +950,99 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+REGEX_Rep...</DefaultAnnotat
     </Connection>
     <Connection>
       <Origin ToolID="23" Connection="Join" />
-      <Destination ToolID="25" Connection="Input" />
+      <Destination ToolID="38" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
       <Destination ToolID="24" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="25" Connection="Output" />
+      <Origin ToolID="37" Connection="Output" />
       <Destination ToolID="26" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="27" Connection="True" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="27" Connection="False" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="29" Connection="False" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="True" />
       <Destination ToolID="8" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="27" Connection="False" />
+      <Origin ToolID="30" Connection="Output" />
       <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="9" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
