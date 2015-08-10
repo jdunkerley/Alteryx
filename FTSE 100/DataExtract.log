@@ -1,0 +1,271 @@
+2015-04-07 23:05:58.456 (3280): -----------------------------------------------------------------------------
+2015-04-07 23:05:58.456 (3280): Initializing fault reporting
+2015-04-07 23:05:58.457 (3280): Fault reporting log pathname: R:\Data\Tableau\JD Learning\FTSE 100\tdeserver64-error00000a84.log
+2015-04-07 23:05:58.457 (3280): Initializing MiniDump
+2015-04-07 23:05:58.457 (3280): Loading 'DbgHelp.dll'
+2015-04-07 23:05:58.457 (3280): Loaded 'C:\Windows\SYSTEM32\DbgHelp.dll'
+2015-04-07 23:05:58.457 (3280):   Product Name: Microsoft® Windows® Operating System
+2015-04-07 23:05:58.457 (3280):   File Version: 6.3.9600.17415 (winblue_r4.141028-1500)
+2015-04-07 23:05:58.457 (3280):   Product Version: 6.3.9600.17415
+2015-04-07 23:05:58.457 (3280): Finding function 'MiniDumpWriteDump'
+2015-04-07 23:05:58.457 (3280): Success
+2015-04-07 23:05:58.457 (3280): Registering unhandled exception filter
+2015-04-07 23:05:58.458 (3280): -----------------------------------------------------------------------------
+2015-04-07 23:05:58.458 (3280): Machine Configuration
+2015-04-07 23:05:58.458 (3280):   Max Descriptors: -1
+2015-04-07 23:05:58.459 (3280): tdeserver: server listening for incoming connections at: tab.pipe://./pipe/{45FE2F00-CAB3-4144-8134-E8310DCD669E}
+2015-04-07 23:05:58.460 (3280): tdeserver: accepting new connection
+2015-04-07 23:05:58.460 (3280): tdeserver: new connection, connection=tab.pipe://./pipe/{45FE2F00-CAB3-4144-8134-E8310DCD669E}
+2015-04-07 23:05:58.460 (3008): beginthread: recv, connection=tab.pipe://./pipe/{45FE2F00-CAB3-4144-8134-E8310DCD669E}
+2015-04-07 23:05:58.460 (3232): beginthread: send, connection=tab.pipe://./pipe/{45FE2F00-CAB3-4144-8134-E8310DCD669E}
+2015-04-07 23:05:58.462 (3008): tdeserver: open session, connection=tab.pipe://./pipe/{45FE2F00-CAB3-4144-8134-E8310DCD669E}, sess_guid=1
+2015-04-07 23:05:58.462 (4672): Session1: QueryExecute:
+2015-04-07 23:05:58.462 (4672): (create database "R:\\Data\\Tableau\\JD Learning\\FTSEData.tde")
+2015-04-07 23:05:58.996 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.002 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.002 (4672): (create schema [Extract])
+2015-04-07 23:05:59.023 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.023 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.023 (4672): (create table [Extract].[Extract])
+2015-04-07 23:05:59.086 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.086 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.086 (4672): (create column [Extract].[Extract].[Ticker] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "0" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2015-04-07 23:05:59.115 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.116 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.116 (4672): (create column [Extract].[Extract].[Date] ( ( "builtin" "date" ) ( "factory" "builtin" ) ( "ordinal" "1" ) ))
+2015-04-07 23:05:59.130 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.130 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.130 (4672): (create column [Extract].[Extract].[Open] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "2" ) ))
+2015-04-07 23:05:59.145 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.145 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.145 (4672): (create column [Extract].[Extract].[High] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "3" ) ))
+2015-04-07 23:05:59.159 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.159 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.159 (4672): (create column [Extract].[Extract].[Low] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "4" ) ))
+2015-04-07 23:05:59.172 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.172 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.172 (4672): (create column [Extract].[Extract].[Close] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "5" ) ))
+2015-04-07 23:05:59.186 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.186 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.186 (4672): (create column [Extract].[Extract].[AdjustedClose] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "6" ) ))
+2015-04-07 23:05:59.200 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.200 (4672): Session1: QueryExecute:
+2015-04-07 23:05:59.200 (4672): (create column [Extract].[Extract].[Volume] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "7" ) ))
+2015-04-07 23:05:59.215 (4672): Session1: QueryExecute: OK
+2015-04-07 23:05:59.255 (4672): Session1: InsertOpen: table="Extract schema="Extract"
+2015-04-07 23:05:59.255 (4672):   column[0]="Ticker"
+2015-04-07 23:05:59.255 (4672):   column[1]="Date"
+2015-04-07 23:05:59.255 (4672):   column[2]="Open"
+2015-04-07 23:05:59.255 (4672):   column[3]="High"
+2015-04-07 23:05:59.255 (4672):   column[4]="Low"
+2015-04-07 23:05:59.255 (4672):   column[5]="Close"
+2015-04-07 23:05:59.255 (4672):   column[6]="AdjustedClose"
+2015-04-07 23:05:59.255 (4672):   column[7]="Volume"
+2015-04-07 23:06:02.931 (4672): Session1: InsertCommit: insert_guid=1
+2015-04-07 23:06:02.942 (3520): LogScopeTime: FlowTable::Build,0,2015-04-07 23:05:59.2580,3.68
+2015-04-07 23:06:03.035 (4672): Session1: InsertCommit: OK
+2015-04-07 23:06:03.036 (4672): Session1: InsertClose: insert_guid=1
+2015-04-07 23:06:03.036 (4672): Session1: InsertClose: OK
+2015-04-07 23:06:03.037 (4672): Session1: QueryExecute:
+2015-04-07 23:06:03.037 (4672): (package)
+2015-04-07 23:06:03.038 (4672): PackageDatabase: in-place package of "R:\Data\Tableau\JD Learning\FTSEData.tde"
+2015-04-07 23:06:04.233 (4672): PackageDatabase: finished
+2015-04-07 23:06:04.233 (4672): LogScopeTime: PackageDatabase::Execute,0,2015-04-07 23:06:03.0380,1.19
+2015-04-07 23:06:04.233 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.233 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.233 (4672): (database "R:\\Data\\Tableau\\JD Learning\\FTSEData.tde")
+2015-04-07 23:06:04.241 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.241 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.241 (4672): (show schemas)
+2015-04-07 23:06:04.242 (4672): Elapsed time:0.001 sec
+2015-04-07 23:06:04.242 (4672): Compilation time:0.000 sec
+2015-04-07 23:06:04.242 (4672): Execution time:0.001 sec
+2015-04-07 23:06:04.242 (4672): Session1: QueryExecute: OK rowset_guid=2 n_columns=1
+2015-04-07 23:06:04.243 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.243 (4672): (show tables [Extract])
+2015-04-07 23:06:04.245 (4672): Elapsed time:0.002 sec
+2015-04-07 23:06:04.245 (4672): Compilation time:0.000 sec
+2015-04-07 23:06:04.245 (4672): Execution time:0.002 sec
+2015-04-07 23:06:04.245 (4672): Session1: QueryExecute: OK rowset_guid=3 n_columns=1
+2015-04-07 23:06:04.246 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.246 (4672): (top (table [Extract].[Extract]) () 0)
+2015-04-07 23:06:04.285 (4672): Elapsed time:0.039 sec
+2015-04-07 23:06:04.285 (4672): Compilation time:0.030 sec
+2015-04-07 23:06:04.285 (4672): Execution time:0.009 sec
+2015-04-07 23:06:04.285 (4672): Session1: QueryExecute: OK rowset_guid=4 n_columns=8
+2015-04-07 23:06:04.286 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.286 (4672): (alter column [Extract].[Extract].[Ticker] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:04.316 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.316 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.316 (4672): (alter column [Extract].[Extract].[Date] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:04.376 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.376 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.376 (4672): (alter column [Extract].[Extract].[Open] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:04.514 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.515 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.515 (4672): (alter column [Extract].[Extract].[High] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:04.634 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.634 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.634 (4672): (alter column [Extract].[Extract].[Low] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:04.751 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.751 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.751 (4672): (alter column [Extract].[Extract].[Close] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:04.874 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:04.874 (4672): Session1: QueryExecute:
+2015-04-07 23:06:04.874 (4672): (alter column [Extract].[Extract].[AdjustedClose] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:05.010 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:05.010 (4672): Session1: QueryExecute:
+2015-04-07 23:06:05.010 (4672): (alter column [Extract].[Extract].[Volume] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-07 23:06:05.143 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:05.143 (4672): Session1: QueryExecute:
+2015-04-07 23:06:05.143 (4672): (top (table [Extract].[Extract]) () 0)
+2015-04-07 23:06:05.148 (4672): Elapsed time:0.005 sec
+2015-04-07 23:06:05.148 (4672): Compilation time:0.002 sec
+2015-04-07 23:06:05.148 (4672): Execution time:0.003 sec
+2015-04-07 23:06:05.149 (4672): Session1: QueryExecute: OK rowset_guid=5 n_columns=8
+2015-04-07 23:06:05.149 (4672): Session1: QueryExecute:
+2015-04-07 23:06:05.149 (4672): (sort [Extract].[Extract] ( ( [Date] asc) ( [Ticker] asc) ( [Close] asc) ( [Open] asc) ( [Low] asc) ( [High] asc) ( [Volume] asc) ( [AdjustedClose] asc) ) )
+2015-04-07 23:06:05.714 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:05.714 (4672): Session1: QueryExecute:
+2015-04-07 23:06:05.714 (4672): (package)
+2015-04-07 23:06:05.715 (4672): PackageDatabase: in-place package of "R:\Data\Tableau\JD Learning\FTSEData.tde"
+2015-04-07 23:06:06.736 (4672): PackageDatabase: finished
+2015-04-07 23:06:06.736 (4672): LogScopeTime: PackageDatabase::Execute,0,2015-04-07 23:06:05.7140,1.02
+2015-04-07 23:06:06.736 (4672): Session1: QueryExecute: OK
+2015-04-07 23:06:06.736 (3008): tdeserver: close session, connection=tab.pipe://./pipe/{45FE2F00-CAB3-4144-8134-E8310DCD669E}, sess_guid=1
+2015-04-07 23:06:06.736 (3280): tdeserver: exit (0)
+2015-04-24 16:26:53.807 (4676): -----------------------------------------------------------------------------
+2015-04-24 16:26:53.807 (4676): Initializing fault reporting
+2015-04-24 16:26:53.807 (4676): Fault reporting log pathname: R:\Data\Tableau\JD Learning\FTSE 100\tdeserver64-error00001374.log
+2015-04-24 16:26:53.807 (4676): Initializing MiniDump
+2015-04-24 16:26:53.807 (4676): Loading 'DbgHelp.dll'
+2015-04-24 16:26:53.823 (4676): Loaded 'C:\Windows\SYSTEM32\DbgHelp.dll'
+2015-04-24 16:26:53.823 (4676):   Product Name: Microsoft® Windows® Operating System
+2015-04-24 16:26:53.823 (4676):   File Version: 6.3.9600.17415 (winblue_r4.141028-1500)
+2015-04-24 16:26:53.823 (4676):   Product Version: 6.3.9600.17415
+2015-04-24 16:26:53.823 (4676): Finding function 'MiniDumpWriteDump'
+2015-04-24 16:26:53.823 (4676): Success
+2015-04-24 16:26:53.823 (4676): Registering unhandled exception filter
+2015-04-24 16:26:53.823 (4676): -----------------------------------------------------------------------------
+2015-04-24 16:26:53.823 (4676): Machine Configuration
+2015-04-24 16:26:53.823 (4676):   Max Descriptors: -1
+2015-04-24 16:26:53.823 (4676): tdeserver: server listening for incoming connections at: tab.pipe://./pipe/{FCB0C7D1-37FE-4C84-9342-C04EE24E2EAF}
+2015-04-24 16:26:53.823 (4676): tdeserver: accepting new connection
+2015-04-24 16:26:53.823 (4676): tdeserver: new connection, connection=tab.pipe://./pipe/{FCB0C7D1-37FE-4C84-9342-C04EE24E2EAF}
+2015-04-24 16:26:53.823 (3376): beginthread: recv, connection=tab.pipe://./pipe/{FCB0C7D1-37FE-4C84-9342-C04EE24E2EAF}
+2015-04-24 16:26:53.823 (4896): beginthread: send, connection=tab.pipe://./pipe/{FCB0C7D1-37FE-4C84-9342-C04EE24E2EAF}
+2015-04-24 16:26:53.823 (3376): tdeserver: open session, connection=tab.pipe://./pipe/{FCB0C7D1-37FE-4C84-9342-C04EE24E2EAF}, sess_guid=1
+2015-04-24 16:26:53.823 (0912): Session1: QueryExecute:
+2015-04-24 16:26:53.823 (0912): (create database "R:\\Data\\Tableau\\JD Learning\\FTSEData.tde")
+2015-04-24 16:26:54.323 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.338 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.338 (0912): (create schema [Extract])
+2015-04-24 16:26:54.354 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.354 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.354 (0912): (create table [Extract].[Extract])
+2015-04-24 16:26:54.417 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.417 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.417 (0912): (create column [Extract].[Extract].[Ticker] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "0" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2015-04-24 16:26:54.448 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.448 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.448 (0912): (create column [Extract].[Extract].[Date] ( ( "builtin" "date" ) ( "factory" "builtin" ) ( "ordinal" "1" ) ))
+2015-04-24 16:26:54.463 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.463 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.463 (0912): (create column [Extract].[Extract].[Open] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "2" ) ))
+2015-04-24 16:26:54.463 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.479 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.479 (0912): (create column [Extract].[Extract].[High] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "3" ) ))
+2015-04-24 16:26:54.479 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.479 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.479 (0912): (create column [Extract].[Extract].[Low] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "4" ) ))
+2015-04-24 16:26:54.495 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.495 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.495 (0912): (create column [Extract].[Extract].[Close] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "5" ) ))
+2015-04-24 16:26:54.510 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.510 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.510 (0912): (create column [Extract].[Extract].[AdjustedClose] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "6" ) ))
+2015-04-24 16:26:54.526 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.526 (0912): Session1: QueryExecute:
+2015-04-24 16:26:54.526 (0912): (create column [Extract].[Extract].[Volume] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "7" ) ))
+2015-04-24 16:26:54.542 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:54.573 (0912): Session1: InsertOpen: table="Extract schema="Extract"
+2015-04-24 16:26:54.573 (0912):   column[0]="Ticker"
+2015-04-24 16:26:54.573 (0912):   column[1]="Date"
+2015-04-24 16:26:54.573 (0912):   column[2]="Open"
+2015-04-24 16:26:54.573 (0912):   column[3]="High"
+2015-04-24 16:26:54.573 (0912):   column[4]="Low"
+2015-04-24 16:26:54.573 (0912):   column[5]="Close"
+2015-04-24 16:26:54.573 (0912):   column[6]="AdjustedClose"
+2015-04-24 16:26:54.573 (0912):   column[7]="Volume"
+2015-04-24 16:26:57.963 (0912): Session1: InsertCommit: insert_guid=1
+2015-04-24 16:26:57.963 (0708): LogScopeTime: FlowTable::Build,0,2015-04-24 16:26:54.5730,3.39
+2015-04-24 16:26:58.057 (0912): Session1: InsertCommit: OK
+2015-04-24 16:26:58.057 (0912): Session1: InsertClose: insert_guid=1
+2015-04-24 16:26:58.057 (0912): Session1: InsertClose: OK
+2015-04-24 16:26:58.057 (0912): Session1: QueryExecute:
+2015-04-24 16:26:58.057 (0912): (package)
+2015-04-24 16:26:58.057 (0912): PackageDatabase: in-place package of "R:\Data\Tableau\JD Learning\FTSEData.tde"
+2015-04-24 16:26:59.705 (0912): PackageDatabase: finished
+2015-04-24 16:26:59.705 (0912): LogScopeTime: PackageDatabase::Execute,0,2015-04-24 16:26:58.0570,1.65
+2015-04-24 16:26:59.705 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:59.705 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.705 (0912): (database "R:\\Data\\Tableau\\JD Learning\\FTSEData.tde")
+2015-04-24 16:26:59.720 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:59.720 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.720 (0912): (show schemas)
+2015-04-24 16:26:59.720 (0912): Elapsed time:0.001 sec
+2015-04-24 16:26:59.720 (0912): Compilation time:0.000 sec
+2015-04-24 16:26:59.720 (0912): Execution time:0.001 sec
+2015-04-24 16:26:59.720 (0912): Session1: QueryExecute: OK rowset_guid=2 n_columns=1
+2015-04-24 16:26:59.720 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.720 (0912): (show tables [Extract])
+2015-04-24 16:26:59.720 (0912): Elapsed time:0.002 sec
+2015-04-24 16:26:59.720 (0912): Compilation time:0.000 sec
+2015-04-24 16:26:59.720 (0912): Execution time:0.002 sec
+2015-04-24 16:26:59.720 (0912): Session1: QueryExecute: OK rowset_guid=3 n_columns=1
+2015-04-24 16:26:59.720 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.720 (0912): (top (table [Extract].[Extract]) () 0)
+2015-04-24 16:26:59.767 (0912): Elapsed time:0.038 sec
+2015-04-24 16:26:59.767 (0912): Compilation time:0.027 sec
+2015-04-24 16:26:59.767 (0912): Execution time:0.011 sec
+2015-04-24 16:26:59.767 (0912): Session1: QueryExecute: OK rowset_guid=4 n_columns=8
+2015-04-24 16:26:59.767 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.767 (0912): (alter column [Extract].[Extract].[Ticker] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:26:59.798 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:59.798 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.798 (0912): (alter column [Extract].[Extract].[Date] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:26:59.866 (0912): Session1: QueryExecute: OK
+2015-04-24 16:26:59.882 (0912): Session1: QueryExecute:
+2015-04-24 16:26:59.882 (0912): (alter column [Extract].[Extract].[Open] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:27:00.038 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:00.038 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.038 (0912): (alter column [Extract].[Extract].[High] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:27:00.194 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:00.194 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.194 (0912): (alter column [Extract].[Extract].[Low] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:27:00.366 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:00.366 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.366 (0912): (alter column [Extract].[Extract].[Close] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:27:00.491 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:00.491 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.491 (0912): (alter column [Extract].[Extract].[AdjustedClose] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:27:00.616 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:00.616 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.616 (0912): (alter column [Extract].[Extract].[Volume] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2015-04-24 16:27:00.773 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:00.773 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.773 (0912): (top (table [Extract].[Extract]) () 0)
+2015-04-24 16:27:00.773 (0912): Elapsed time:0.004 sec
+2015-04-24 16:27:00.773 (0912): Compilation time:0.001 sec
+2015-04-24 16:27:00.773 (0912): Execution time:0.003 sec
+2015-04-24 16:27:00.773 (0912): Session1: QueryExecute: OK rowset_guid=5 n_columns=8
+2015-04-24 16:27:00.773 (0912): Session1: QueryExecute:
+2015-04-24 16:27:00.773 (0912): (sort [Extract].[Extract] ( ( [Date] asc) ( [Ticker] asc) ( [Close] asc) ( [Open] asc) ( [Low] asc) ( [High] asc) ( [Volume] asc) ( [AdjustedClose] asc) ) )
+2015-04-24 16:27:01.304 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:01.304 (0912): Session1: QueryExecute:
+2015-04-24 16:27:01.304 (0912): (package)
+2015-04-24 16:27:01.304 (0912): PackageDatabase: in-place package of "R:\Data\Tableau\JD Learning\FTSEData.tde"
+2015-04-24 16:27:02.143 (0912): PackageDatabase: finished
+2015-04-24 16:27:02.143 (0912): Session1: QueryExecute: OK
+2015-04-24 16:27:02.143 (3376): tdeserver: close session, connection=tab.pipe://./pipe/{FCB0C7D1-37FE-4C84-9342-C04EE24E2EAF}, sess_guid=1
+2015-04-24 16:27:02.143 (4676): tdeserver: exit (0)

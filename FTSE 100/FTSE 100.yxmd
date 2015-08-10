@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="78" y="486" />
+        <Position x="90.00002" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -22,7 +22,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="186" y="486" />
+        <Position x="198" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -47,7 +47,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="282" y="486" />
+        <Position x="294" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -66,7 +66,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="390" y="486" />
+        <Position x="402" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -91,7 +91,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="486" y="486" />
+        <Position x="498" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -114,7 +114,7 @@
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="582" y="486" />
+        <Position x="594" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -155,7 +155,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="162" y="606" />
+        <Position x="174" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -178,7 +178,7 @@
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="246" y="570" />
+        <Position x="258" y="618" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -200,7 +200,7 @@
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="246" y="630" />
+        <Position x="258" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -221,7 +221,7 @@
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="342" y="606" />
+        <Position x="354" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -256,11 +256,11 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="786" y="606" />
+        <Position x="798" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_1316_1edc7a6e0c454685aca443b2365a3297\Engine_800_e29ad628f2d34899893e0273f9d6ce53.yxdb</TempFile>
+          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3452_b4e6f0dd9e4740b89ad3926945560b1d\Engine_800_cd7f2249de1a4689b5b0e0c43321a872.yxdb</TempFile>
           <Layout>
             <ViewMode>Single</ViewMode>
             <ViewSize value="100" />
@@ -281,7 +281,7 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="510" y="606" />
+        <Position x="522" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -301,22 +301,20 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="786" y="666" />
+        <Position x="798" y="714" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="19" MaxRecords="">R:\Data\Tableau\JD Learning\FTSEData.yxdb</File>
+          <File FileFormat="42" MaxRecords="">R:\Data\Tableau\JD Learning\FTSEData.tde</File>
           <Passwords />
           <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <OldSpatialIndex>False</OldSpatialIndex>
+            <OutputOption>Overwrite</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>FTSEData.yxdb</DefaultAnnotationText>
+          <DefaultAnnotationText>FTSEData.tde</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -324,7 +322,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="582" y="606" />
+        <Position x="594" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -364,7 +362,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="666" y="606" />
+        <Position x="678" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -391,7 +389,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="426" y="606" />
+        <Position x="438" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -409,7 +407,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="41.99999" y="210" width="876" height="216" />
+        <Position x="54" y="258" width="876" height="216" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -427,7 +425,7 @@
       <ChildNodes>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="151" y="302" />
+            <Position x="163" y="350" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -450,11 +448,11 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="8">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="751" y="254" />
+            <Position x="763" y="302" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_1316_1edc7a6e0c454685aca443b2365a3297\Engine_800_8e19a8866cf64285b28592ef6b20ba15.yxdb</TempFile>
+              <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3452_b4e6f0dd9e4740b89ad3926945560b1d\Engine_800_070d3d2f86514c359c65c8b5c44b1707.yxdb</TempFile>
               <Layout>
                 <ViewMode>Single</ViewMode>
                 <ViewSize value="100" />
@@ -475,7 +473,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="9">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="66.99999" y="302" />
+            <Position x="79" y="350" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -495,7 +493,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="10">
           <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-            <Position x="235" y="302" />
+            <Position x="247" y="350" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -538,7 +536,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="13">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="834" y="342" />
+            <Position x="846" y="390" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -560,7 +558,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="27">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="319" y="302" />
+            <Position x="331" y="350" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -585,7 +583,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="28">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="403" y="290" />
+            <Position x="415" y="338" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -604,7 +602,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="655" y="290" />
+            <Position x="667" y="338" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -628,7 +626,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="30">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-            <Position x="750" y="342" />
+            <Position x="762" y="390" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -647,7 +645,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="31">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="487" y="290" />
+            <Position x="499" y="338" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -668,7 +666,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="32">
           <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-            <Position x="571" y="290" />
+            <Position x="583" y="338" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -713,7 +711,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="42" y="6" width="613" height="187" />
+        <Position x="54.00002" y="54" width="613" height="187" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -731,7 +729,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
       <ChildNodes>
         <Node ToolID="1">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="67" y="62.00002" />
+            <Position x="79.00002" y="110" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -761,7 +759,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="2">
           <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-            <Position x="151" y="61.99998" />
+            <Position x="163" y="110" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -799,7 +797,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="3">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="259" y="61.99999" />
+            <Position x="271" y="110" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -820,7 +818,7 @@ URL="https://www.quandl.com/api/v1/datasets/YAHOO/"+[Exch]+"_...</DefaultAnnotat
         </Node>
         <Node ToolID="4">
           <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-            <Position x="355" y="62" />
+            <Position x="367" y="110" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -853,11 +851,11 @@ href="/q\?s=([^"]*)"</DefaultAnnotationText>
         </Node>
         <Node ToolID="5">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="571" y="50" />
+            <Position x="583" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_1316_1edc7a6e0c454685aca443b2365a3297\Engine_800_ea3aeae7d0714b8a962fbd9643ebc655.yxdb</TempFile>
+              <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_3452_b4e6f0dd9e4740b89ad3926945560b1d\Engine_800_eb36a266e09343e58f0e07fb977186e1.yxdb</TempFile>
               <Layout>
                 <ViewMode>Single</ViewMode>
                 <ViewSize value="100" />
@@ -879,7 +877,7 @@ href="/q\?s=([^"]*)"</DefaultAnnotationText>
         </Node>
         <Node ToolID="6">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="451" y="62" />
+            <Position x="463" y="110" />
           </GuiSettings>
           <Properties>
             <Configuration>
