@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.0">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="246" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>URL</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="QuandlCode" selected="False" />
+              <Field name="URL" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="QuandlCode" selected="False" />
+              <Field name="URL" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field name="URL" size="64" source="Formula: 'https://www.quandl.com/api/v3/datasets/' + [QuandlCode] + '/data.csv'" type="V_String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="URL" type="V_String" size="64" expression="'https://www.quandl.com/api/v3/datasets/' + [QuandlCode] + '/data.csv'" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Create URL</AnnotationText>
+          <DefaultAnnotationText>URL='https://www.quandl.com/api/v3/datasets/' + [QuandlCode] ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field name="URL" size="64" source="Formula: 'https://www.quandl.com/api/v3/datasets/' + [QuandlCode] + '/data.csv'" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="402" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <NumFields value="1" />
+          <Delimeters value="\r\n" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Split Rows</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="318" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="URL" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="474" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>QuandlCode</UpdateField_Name>
+          <CreateField_Name>RowIdx</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>NULL</OtherRows>
+          <NumRows value="1" />
+          <Expression>IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)</Expression>
+          <GroupByFields>
+            <Field field="QuandlCode" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Add RowIdx</AnnotationText>
+          <DefaultAnnotationText>IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="RowIdx" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="570" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <NumFields value="1" />
+          <Delimeters value="," />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Split Columns</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="RowIdx" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="666" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>QuandlCode</UpdateField_Name>
+          <CreateField_Name>ColIdx</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>NULL</OtherRows>
+          <NumRows value="1" />
+          <Expression>IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)</Expression>
+          <GroupByFields>
+            <Field field="QuandlCode" />
+            <Field field="RowIdx" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Add ColIdx</AnnotationText>
+          <DefaultAnnotationText>IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="RowIdx" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="ColIdx" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="Asc" />
+            <Field field="RowIdx" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Quandl Codes</Name>
+          <Abbrev>Q</Abbrev>
+          <ShowFieldMap value="True" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="2" />
+              <Fields>
+                <Field name="QuandlCode" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>YAHOO\L_ARM</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (2)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="402" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>RowIdx</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>0</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[RowIdx] = 0</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="RowIdx" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="ColIdx" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="Asc" />
+            <Field field="RowIdx" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="RowIdx" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="ColIdx" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="Asc" />
+            <Field field="RowIdx" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="474" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="QuandlCode" />
+            <Field field="ColIdx" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="QuandlCode" />
+            <Field field="ColIdx" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Left_QuandlCode" selected="True" />
+                <SelectField field="Right_RowIdx" selected="True" rename="Row" />
+                <SelectField field="Right_ColIdx" selected="True" rename="Column" />
+                <SelectField field="Left_DownloadData" selected="True" rename="Field" />
+                <SelectField field="Right_DownloadData" selected="True" rename="Value" />
+                <SelectField field="Left_RowIdx" selected="False" />
+                <SelectField field="Left_ColIdx" selected="False" />
+                <SelectField field="Right_QuandlCode" selected="False" rename="Right_QuandlCode" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="ColIdx" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="QuandlCode" />
+            <Field field="ColIdx" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="RowIdx" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="ColIdx" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="QuandlCode" />
+            <Field field="ColIdx" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="402" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>Column</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>0</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Column] = 0</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="606" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="QuandlCode" />
+            <Field field="Row" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="QuandlCode" />
+            <Field field="Row" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Left_QuandlCode" selected="True" />
+                <SelectField field="Left_Row" selected="True" />
+                <SelectField field="Right_Column" selected="True" />
+                <SelectField field="Left_Column" selected="False" />
+                <SelectField field="Left_Field" selected="False" />
+                <SelectField field="Left_Value" selected="True" rename="Date" />
+                <SelectField field="Right_QuandlCode" selected="False" rename="Right_QuandlCode" />
+                <SelectField field="Right_Row" selected="False" rename="Right_Row" />
+                <SelectField field="Right_Field" selected="True" />
+                <SelectField field="Right_Value" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" source="TextToColumns: Parsed from DownloadData" type="Date" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="QuandlCode" />
+            <Field field="Row" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Date" source="TextToColumns: Parsed from DownloadData" type="Date" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="" />
+            <Field field="Row" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="QuandlCode" />
+            <Field field="Row" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="702" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="QuandlCode" selected="True" />
+            <Field field="Field" selected="True" />
+            <Field field="Value" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Date" source="TextToColumns: Parsed from DownloadData" type="Date" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="510" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Value" selected="True" type="Date" size="10" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="QuandlCode" size="11" source="TextInput:" type="String" />
+            <Field description="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" name="Row" source="Formula: IIF(ISNull([Row-1:RowIdx]),0,[Row-1:RowIdx]+1)" type="Int32" />
+            <Field description="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" name="Column" source="Formula: IIF(IsNull([Row-1:ColIdx]),0,[Row-1:ColIdx]+1)" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Field" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" source="TextToColumns: Parsed from DownloadData" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="QuandlCode" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="810" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output20</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="True" />
+      <Destination ToolID="12" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="False" />
+      <Destination ToolID="12" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Join" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="False" />
+      <Destination ToolID="14" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="14" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Join" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (19)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (20)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Quandl</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (18)</Name>
+          <ToolId value="18" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (19)</Description>
+              <Name>Macro Input (19)</Name>
+              <ToolId value="19" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (20)</Description>
+              <Name>Macro Output (20)</Name>
+              <ToolId value="20" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="True" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="20" Selected="True" />
+        <Tool ToolId="19" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
