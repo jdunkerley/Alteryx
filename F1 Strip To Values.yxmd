@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="9.5">
+<AlteryxDocument yxmdVer="10.0">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="66" y="54" />
+        <Position x="54" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">R:\Data\Tableau\JD\Learning\F1 Data.yxdb</File>
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Repos\Alteryx\F1 Data.yxdb</File>
           <FormatSpecificOptions />
         </Configuration>
         <Annotation DisplayMode="0">
@@ -16,6 +16,9 @@
           <DefaultAnnotationText>F1 Data.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="URL" size="255" source="(Multiple Sources)" type="V_String" />
@@ -32,7 +35,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings>
-        <Position x="150" y="54" />
+        <Position x="138" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -44,12 +47,15 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings Macro="HTMLRemoveFormatting.yxmc" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="330" y="54" />
+        <Position x="318" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -72,19 +78,17 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="810" y="102" />
+        <Position x="726" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_2976_f3fa2ca960e449b2a41473155cd3dd02\Engine_1952_3b0bc692999b40cb8abbff26e371c8b9.yxdb</TempFile>
+          <TempFile>C:\Users\James\AppData\Local\Temp\Engine_34288_79a5fa55c89644ddaab5c0704bb22658_\Engine_6376_74e8225c223b42a3bf0feee882609a7a_.yxdb</TempFile>
           <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
             <View1>
-              <DefaultTab>Table</DefaultTab>
-              <Hints />
+              <Hints>
+                <Table />
+              </Hints>
             </View1>
-            <View2 />
           </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -97,7 +101,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="618" y="102" />
+        <Position x="474" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -130,7 +134,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="714" y="102" />
+        <Position x="606" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -148,19 +152,17 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="618" y="42" />
+        <Position x="474" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\Alteryx\AppData\Local\Temp\2\Engine_2976_f3fa2ca960e449b2a41473155cd3dd02\Engine_1952_6e16df6677614f3a9654679976a32d11.yxdb</TempFile>
+          <TempFile>C:\Users\James\AppData\Local\Temp\Engine_34288_79a5fa55c89644ddaab5c0704bb22658_\Engine_6376_f88087a27f1e4d579b99bcb07b030476_.yxdb</TempFile>
           <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
             <View1>
-              <DefaultTab>Table</DefaultTab>
-              <Hints />
+              <Hints>
+                <Table />
+              </Hints>
             </View1>
-            <View2 />
           </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -173,7 +175,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="234" y="66" />
+        <Position x="222" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -197,29 +199,32 @@ XHTMLNode=Replace(REGEX_Replace([XHTMLNode],"&lt;ul[^&gt;]*&gt;",""),"...
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="522" y="198" />
+        <Position x="606" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">R:\Data\Tableau\JD\Learning\F1 Data Stripped.xlsx|Sheet1</File>
+          <File FileFormat="19" MaxRecords="">C:\Repos\Alteryx\F1 Data Striped.yxdb</File>
           <Passwords />
           <FormatSpecificOptions>
-            <OutputOption>Overwrite</OutputOption>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>F1 Data Stripped.xlsx
-Table=Sheet1</DefaultAnnotationText>
+          <DefaultAnnotationText>F1 Data Striped.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="426" y="210" />
+        <Position x="474" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -289,6 +294,7 @@ Column - Ascending</DefaultAnnotationText>
     <ConvErrorLimit_Stop value="False" />
     <CancelOnError value="False" />
     <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
     <DisableAllOutput value="False" />
     <ShowAllMacroMessages value="False" />
     <ShowConnectionStatusIsOn value="True" />
@@ -299,6 +305,9 @@ Column - Ascending</DefaultAnnotationText>
       <NameIsFileName value="True" />
       <Name>F1 Strip To Values</Name>
       <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
       <CategoryName />
       <SearchTags />
       <Author />
