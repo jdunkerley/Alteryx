@@ -1,0 +1,761 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="342" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Distance" type="Double" size="8" expression="2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Calculate Distance</AnnotationText>
+          <DefaultAnnotationText>Distance=2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="Formula: LatitudeA/180 * Pi()" type="Double" />
+            <Field name="LongitudeA" source="Formula: LongitudeA/180 * Pi()" type="Double" />
+            <Field name="LatitudeB" source="Formula: LatitudeB/180 * Pi()" type="Double" />
+            <Field name="LongitudeB" source="Formula: LongitudeB/180 * Pi()" type="Double" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="246" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="LatitudeA" type="Double" size="8" expression="LatitudeA/180 * Pi()" />
+            <FormulaField field="LongitudeA" type="Double" size="8" expression="LongitudeA/180 * Pi()" />
+            <FormulaField field="LatitudeB" type="Double" size="8" expression="LatitudeB/180 * Pi()" />
+            <FormulaField field="LongitudeB" type="Double" size="8" expression="LongitudeB/180 * Pi()" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Convert to Radians</AnnotationText>
+          <DefaultAnnotationText>LatitudeA=LatitudeA/180 * Pi()
+LongitudeA=LongitudeA/180 * Pi()
+LatitudeB=LatitudeB/180 * Pi()
+...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="Formula: LatitudeA/180 * Pi()" type="Double" />
+            <Field name="LongitudeA" source="Formula: LongitudeA/180 * Pi()" type="Double" />
+            <Field name="LatitudeB" source="Formula: LatitudeB/180 * Pi()" type="Double" />
+            <Field name="LongitudeB" source="Formula: LongitudeB/180 * Pi()" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Segments" />
+          </Fields>
+          <Data>
+            <r>
+              <c>100</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Number of Segments</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Segments" source="TextInput:" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="162" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Fractional" type="Double" size="8" expression="1.0/([Segments]-1)" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Fractional=1.0/([Segments]-1)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Segments" source="TextInput:" type="Byte" />
+            <Field name="Fractional" source="Formula: 1.0/([Segments]-1)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="438" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="Formula: LatitudeA/180 * Pi()" type="Double" />
+            <Field name="LongitudeA" source="Formula: LongitudeA/180 * Pi()" type="Double" />
+            <Field name="LatitudeB" source="Formula: LatitudeB/180 * Pi()" type="Double" />
+            <Field name="LongitudeB" source="Formula: LongitudeB/180 * Pi()" type="Double" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Segments" source="TextInput:" type="Byte" />
+            <Field name="Fractional" source="Formula: 1.0/([Segments]-1)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.GenerateRows.GenerateRows">
+        <Position x="534" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name />
+          <CreateField_Name>RowCount</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <Expression_Init>0</Expression_Init>
+          <Expression_Cond>RowCount &lt; Segments</Expression_Cond>
+          <Expression_Loop>RowCount + 1</Expression_Loop>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="Formula: LatitudeA/180 * Pi()" type="Double" />
+            <Field name="LongitudeA" source="Formula: LongitudeA/180 * Pi()" type="Double" />
+            <Field name="LatitudeB" source="Formula: LatitudeB/180 * Pi()" type="Double" />
+            <Field name="LongitudeB" source="Formula: LongitudeB/180 * Pi()" type="Double" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Segments" source="TextInput:" type="Byte" />
+            <Field name="Fractional" source="Formula: 1.0/([Segments]-1)" type="Double" />
+            <Field name="RowCount" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxGenerateRows" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="630" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="f" type="Double" size="8" expression="[RowCount]*[Fractional]" />
+            <FormulaField field="A" type="Double" size="8" expression="Sin((1-f)*[Distance])/Sin([Distance])" />
+            <FormulaField field="B" type="Double" size="8" expression="Sin(f*[Distance])/Sin([Distance])" />
+            <FormulaField field="X" type="Double" size="8" expression="A*Cos([LatitudeA])*Cos([LongitudeA]) + B*Cos([LatitudeB])*Cos([LongitudeB])" />
+            <FormulaField field="Y" type="Double" size="8" expression="A*Cos([LatitudeA])*Sin([LongitudeA]) + B*Cos([LatitudeB])*Sin([LongitudeB])" />
+            <FormulaField field="Z" type="Double" size="8" expression="A*Sin([LatitudeA]) + B*Sin([LatitudeB])" />
+            <FormulaField field="PointLatitude" type="Double" size="8" expression="atan2(Z, Sqrt(X * X + Y * Y))/PI()*180" />
+            <FormulaField field="PointLongitude" type="Double" size="8" expression="atan2(Y, X)/PI()*180" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>f=[RowCount]*[Fractional]
+A=Sin((1-f)*[Distance])/Sin([Distance])
+B=Sin(f*[Distance])/Sin([Distance])
+...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="Formula: LatitudeA/180 * Pi()" type="Double" />
+            <Field name="LongitudeA" source="Formula: LongitudeA/180 * Pi()" type="Double" />
+            <Field name="LatitudeB" source="Formula: LatitudeB/180 * Pi()" type="Double" />
+            <Field name="LongitudeB" source="Formula: LongitudeB/180 * Pi()" type="Double" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Segments" source="TextInput:" type="Byte" />
+            <Field name="Fractional" source="Formula: 1.0/([Segments]-1)" type="Double" />
+            <Field name="RowCount" type="Int32" />
+            <Field name="f" source="Formula: [RowCount]*[Fractional]" type="Double" />
+            <Field name="A" source="Formula: Sin((1-f)*[Distance])/Sin([Distance])" type="Double" />
+            <Field name="B" source="Formula: Sin(f*[Distance])/Sin([Distance])" type="Double" />
+            <Field name="X" source="Formula: A*Cos([LatitudeA])*Cos([LongitudeA]) + B*Cos([LatitudeB])*Cos([LongitudeB])" type="Double" />
+            <Field name="Y" source="Formula: A*Cos([LatitudeA])*Sin([LongitudeA]) + B*Cos([LatitudeB])*Sin([LongitudeB])" type="Double" />
+            <Field name="Z" source="Formula: A*Sin([LatitudeA]) + B*Sin([LatitudeB])" type="Double" />
+            <Field name="PointLatitude" source="Formula: atan2(Z, Sqrt(X * X + Y * Y))/PI()*180" type="Double" />
+            <Field name="PointLongitude" source="Formula: atan2(Y, X)/PI()*180" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="726" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="Distance" selected="True" />
+            <SelectField field="RowCount" selected="True" rename="Point" />
+            <SelectField field="PointLatitude" selected="True" />
+            <SelectField field="PointLongitude" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Point" type="Int32" />
+            <Field name="PointLatitude" source="Formula: atan2(Z, Sqrt(X * X + Y * Y))/PI()*180" type="Double" />
+            <Field name="PointLongitude" source="Formula: atan2(Y, X)/PI()*180" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Points</Name>
+          <Abbrev>P</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="5" />
+              <Fields>
+                <Field name="LatitudeA" />
+                <Field name="LongitudeA" />
+                <Field name="LatitudeB" />
+                <Field name="LongitudeB" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>29.56278</c>
+                  <c>106.55278</c>
+                  <c>31.22222</c>
+                  <c>121.45806</c>
+                </r>
+                <r>
+                  <c>29.56278</c>
+                  <c>106.55278</c>
+                  <c>23.8662</c>
+                  <c>120.7358</c>
+                </r>
+                <r>
+                  <c>29.56278</c>
+                  <c>106.55278</c>
+                  <c>25.06616</c>
+                  <c>121.65985</c>
+                </r>
+                <r>
+                  <c>22.28552</c>
+                  <c>114.15769</c>
+                  <c>25.06616</c>
+                  <c>121.65985</c>
+                </r>
+                <r>
+                  <c>25.06616</c>
+                  <c>121.65985</c>
+                  <c>29.56278</c>
+                  <c>106.55278</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (17)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="LatitudeA" source="TextInput:" type="Double" />
+            <Field name="LongitudeA" source="TextInput:" type="Double" />
+            <Field name="LatitudeB" source="TextInput:" type="Double" />
+            <Field name="LongitudeB" source="TextInput:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="150" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>RecordID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="TextInput:" type="Double" />
+            <Field name="LongitudeA" source="TextInput:" type="Double" />
+            <Field name="LatitudeB" source="TextInput:" type="Double" />
+            <Field name="LongitudeB" source="TextInput:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="822" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="RecordID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="RecordID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Left_RecordID" selected="False" />
+                <SelectField field="Left_LatitudeA" selected="True" />
+                <SelectField field="Left_LongitudeA" selected="True" />
+                <SelectField field="Left_LatitudeB" selected="True" />
+                <SelectField field="Left_LongitudeB" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+                <SelectField field="Right_RecordID" selected="False" rename="Right_RecordID" />
+                <SelectField field="Right_Distance" selected="True" />
+                <SelectField field="Right_Point" selected="True" />
+                <SelectField field="Right_PointLatitude" selected="True" />
+                <SelectField field="Right_PointLongitude" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="LatitudeA" source="TextInput:" type="Double" />
+            <Field name="LongitudeA" source="TextInput:" type="Double" />
+            <Field name="LatitudeB" source="TextInput:" type="Double" />
+            <Field name="LongitudeB" source="TextInput:" type="Double" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="RecordID" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="LatitudeA" source="TextInput:" type="Double" />
+            <Field name="LongitudeA" source="TextInput:" type="Double" />
+            <Field name="LatitudeB" source="TextInput:" type="Double" />
+            <Field name="LongitudeB" source="TextInput:" type="Double" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Point" type="Int32" />
+            <Field name="PointLatitude" source="Formula: atan2(Z, Sqrt(X * X + Y * Y))/PI()*180" type="Double" />
+            <Field name="PointLongitude" source="Formula: atan2(Y, X)/PI()*180" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Point" type="Int32" />
+            <Field name="PointLatitude" source="Formula: atan2(Z, Sqrt(X * X + Y * Y))/PI()*180" type="Double" />
+            <Field name="PointLongitude" source="Formula: atan2(Y, X)/PI()*180" type="Double" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="RecordID" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+        <Position x="54" y="234" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="54" y="306" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="930" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1050" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output26</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="930" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="LatitudeA" source="TextInput:" type="Double" />
+            <Field name="LongitudeA" source="TextInput:" type="Double" />
+            <Field name="LatitudeB" source="TextInput:" type="Double" />
+            <Field name="LongitudeB" source="TextInput:" type="Double" />
+            <Field name="Distance" source="Formula: 2*ASin(Sqrt(Pow((sin(([LatitudeA]-[LatitudeB])/2)),2) + Cos([LatitudeB])*Cos([LatitudeB])*Pow((Sin(([LongitudeA]-[LongitudeB])/2)),2)))&#xA;" type="Double" />
+            <Field name="Point" type="Int32" />
+            <Field name="PointLatitude" source="Formula: atan2(Z, Sqrt(X * X + Y * Y))/PI()*180" type="Double" />
+            <Field name="PointLongitude" source="Formula: atan2(Y, X)/PI()*180" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="19" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="22" Connection="Question" />
+      <Destination ToolID="25" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Join" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="25" Connection="Action" />
+      <Destination ToolID="20" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="23" Connection="Question" />
+      <Destination ToolID="24" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="24" Connection="Action" />
+      <Destination ToolID="4" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (22)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Numeric Up Down (23)</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (26)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>GreatArcs</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="24" />
+              <Expression>{{INPUT}}</Expression>
+              <Destination>4/Data/r[1]/c[1]</Destination>
+              <Mapping>Update Cell</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>row	1
+column	1</DynamicConfiguration>
+              <DefaultConfiguration value="True" />
+            </Action>
+            <Action>
+              <Type>ReverseFieldMap</Type>
+              <Description />
+              <ToolId value="25" />
+              <Variable />
+              <SelectTool value="-1" />
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (21)</Name>
+          <ToolId value="21" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (22)</Description>
+              <Name>Macro Input (22)</Name>
+              <ToolId value="22" />
+            </Question>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Number of segments</Description>
+              <Name>Numeric Up Down (23)</Name>
+              <ToolId value="23" />
+              <Minimum value="1" />
+              <Maximum value="10000" />
+              <Increment value="1" />
+              <Default value="100" />
+              <Decimals value="0" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (26)</Description>
+              <Name>Macro Output (26)</Name>
+              <ToolId value="26" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="22" Selected="True" />
+        <Tool ToolId="26" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
