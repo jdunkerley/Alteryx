@@ -2,300 +2,23 @@
 <AlteryxDocument yxmdVer="10.5">
   <Nodes>
     <Node ToolID="1">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="54" />
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="30" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="8" />
-          <Fields>
-            <Field name="Url" />
-          </Fields>
-          <Data>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/1/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/2/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/3/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/4/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/5/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/6/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/7/null.json</c>
-            </r>
-            <r>
-              <c>http://www.premierleague.com/ajax/player/index/BY_CLUB/null/null/null/null/null/ALL/2015-2016/null/null/100/4/2/2/8/null.json</c>
-            </r>
-          </Data>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Downloads\Football.yxdb</File>
+          <FormatSpecificOptions />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText />
+          <DefaultAnnotationText>Football.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
-    </Node>
-    <Node ToolID="2">
-      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="246" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <URLField>Url</URLField>
-          <OutputMode>String</OutputMode>
-          <CodePage>65001</CodePage>
-          <EncodeURLs value="True" />
-          <Headers>
-            <NameValues />
-            <Fields orderChanged="False">
-              <Field name="Url" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </Fields>
-          </Headers>
-          <Payload>
-            <HTTPAction>GET</HTTPAction>
-            <QueryStringBodyMode>Compose</QueryStringBodyMode>
-            <ComposeNameValues />
-            <ComposeFields orderChanged="False">
-              <Field name="Url" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </ComposeFields>
-          </Payload>
-          <UserName />
-          <Password />
-          <numConnections>2</numConnections>
-          <Timeout>600</Timeout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
-    </Node>
-    <Node ToolID="3">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="342" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <JSON_Field>DownloadData</JSON_Field>
-          <IncludeInOutput value="False" />
-          <SingleField value="True" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
-    </Node>
-    <Node ToolID="4">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="438" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>Startswith([JSON_Name],"playerIndexSection.index.resultsList")</Expression>
-          <Mode>Custom</Mode>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Startswith([JSON_Name],"playerIndexSection.index.resultsList")</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="5">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="546" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Field>JSON_Name</Field>
-          <RegExExpression value="playerIndexSection.index.resultsList.(\d+).(\w+)" />
-          <CaseInsensitve value="True" />
-          <Method>ParseComplex</Method>
-          <Replace expression="">
-            <CopyUnmatched value="True" />
-          </Replace>
-          <ParseSimple>
-            <SplitToRows value="False" />
-            <RootName>JSON_Name</RootName>
-            <NumFields value="3" />
-            <ErrorHandling>Warn</ErrorHandling>
-          </ParseSimple>
-          <ParseComplex>
-            <Field field="PlayerId" type="V_WString" size="1073741823" />
-            <Field field="Field" type="V_WString" size="1073741823" />
-          </ParseComplex>
-          <Match>
-            <Field>JSON_Name_Matched</Field>
-            <ErrorUnmatched value="False" />
-          </Match>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Parse:
-playerIndexSection.index.re...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
-    </Node>
-    <Node ToolID="6">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="630" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <SelectFields>
-            <SelectField field="RecordID" selected="True" />
-            <SelectField field="Url" selected="False" />
-            <SelectField field="DownloadHeaders" selected="False" />
-            <SelectField field="JSON_Name" selected="False" />
-            <SelectField field="PlayerId" selected="True" />
-            <SelectField field="Field" selected="True" />
-            <SelectField field="JSON_ValueString" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="150" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <StartValue>1</StartValue>
-          <FieldName>RecordID</FieldName>
-          <FieldType>Int32</FieldType>
-          <Position>0</Position>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
-    </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="714" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <GroupFields>
-            <Field field="RecordID" />
-            <Field field="PlayerId" />
-          </GroupFields>
-          <HeaderField field="Field" />
-          <DataField field="JSON_ValueString" />
-          <Methods>
-            <Method method="First" />
-            <Separator>,</Separator>
-            <FieldSize value="2048" />
-          </Methods>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="RecordID" source="CrossTab:Group:First:" type="Int32" />
-            <Field description="RegEx: Parsed from JSON_Name" name="PlayerId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
-            <Field name="activeInPremierLeague" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="club" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="cmsAlias" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="firstSeason" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="fullName" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="lastName" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="lastSeason" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="matchAttaxPlayer" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="position" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="shirtNo" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="squadNo" size="1073741823" source="JSONParse: " type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="RecordID" order="Asc" />
-            <Field field="PlayerId" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
-    </Node>
-    <Node ToolID="9">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="906" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField field="Uri" type="V_WString" size="1024" expression="'http://www.premierleague.com/en-gb/players/profile.overview.html/' + cmsAlias" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Uri='http://www.premierleague.com/en-gb/players/profile.overv...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="10">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
-        <Position x="810" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Fields>
-            <Field field="PlayerId" selected="True" />
-            <Field field="activeInPremierLeague" selected="True" />
-            <Field field="club" selected="True" />
-            <Field field="cmsAlias" selected="True" />
-            <Field field="firstSeason" selected="True" />
-            <Field field="fullName" selected="True" />
-            <Field field="id" selected="True" />
-            <Field field="lastName" selected="True" />
-            <Field field="lastSeason" selected="True" />
-            <Field field="matchAttaxPlayer" selected="True" />
-            <Field field="position" selected="True" />
-            <Field field="shirtNo" selected="True" />
-            <Field field="squadNo" selected="True" />
-            <Field field="*Unknown" selected="True" />
-          </Fields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="RecordID" source="CrossTab:Group:First:" type="Int32" />
@@ -312,81 +35,17 @@ playerIndexSection.index.re...</DefaultAnnotationText>
             <Field name="position" size="7" source="JSONParse: " type="String" />
             <Field name="shirtNo" source="JSONParse: " type="Bool" />
             <Field name="squadNo" source="JSONParse: " type="Byte" />
+            <Field name="Uri" size="1024" source="Formula: 'http://www.premierleague.com/en-gb/players/profile.overview.html/' + cmsAlias" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
     <Node ToolID="11">
-      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="1014" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <URLField>Uri</URLField>
-          <OutputMode>String</OutputMode>
-          <CodePage>65001</CodePage>
-          <EncodeURLs value="True" />
-          <Headers>
-            <NameValues />
-            <Fields orderChanged="False">
-              <Field name="RecordID" selected="False" />
-              <Field name="PlayerId" selected="False" />
-              <Field name="activeInPremierLeague" selected="False" />
-              <Field name="club" selected="False" />
-              <Field name="cmsAlias" selected="False" />
-              <Field name="firstSeason" selected="False" />
-              <Field name="fullName" selected="False" />
-              <Field name="id" selected="False" />
-              <Field name="lastName" selected="False" />
-              <Field name="lastSeason" selected="False" />
-              <Field name="matchAttaxPlayer" selected="False" />
-              <Field name="position" selected="False" />
-              <Field name="shirtNo" selected="False" />
-              <Field name="squadNo" selected="False" />
-              <Field name="Uri" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </Fields>
-          </Headers>
-          <Payload>
-            <HTTPAction>GET</HTTPAction>
-            <QueryStringBodyMode>Compose</QueryStringBodyMode>
-            <ComposeNameValues />
-            <ComposeFields orderChanged="False">
-              <Field name="RecordID" selected="False" />
-              <Field name="PlayerId" selected="False" />
-              <Field name="activeInPremierLeague" selected="False" />
-              <Field name="club" selected="False" />
-              <Field name="cmsAlias" selected="False" />
-              <Field name="firstSeason" selected="False" />
-              <Field name="fullName" selected="False" />
-              <Field name="id" selected="False" />
-              <Field name="lastName" selected="False" />
-              <Field name="lastSeason" selected="False" />
-              <Field name="matchAttaxPlayer" selected="False" />
-              <Field name="position" selected="False" />
-              <Field name="shirtNo" selected="False" />
-              <Field name="squadNo" selected="False" />
-              <Field name="Uri" selected="False" />
-              <Field name="*Unknown" selected="False" />
-            </ComposeFields>
-          </Payload>
-          <UserName />
-          <Password />
-          <numConnections>2</numConnections>
-          <Timeout>600</Timeout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
-    </Node>
-    <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="246" y="222" />
+        <Position x="210" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -422,7 +81,7 @@ playerIndexSection.index.re...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="354" y="222" />
+        <Position x="318" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -456,9 +115,9 @@ playerIndexSection.index.re...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="15">
+    <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="246" y="354" />
+        <Position x="210" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -489,9 +148,9 @@ playerIndexSection.index.re...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="16">
+    <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="354" y="354" />
+        <Position x="318" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -523,9 +182,9 @@ playerIndexSection.index.re...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="17">
+    <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="1110" y="354" />
+        <Position x="1074" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -573,9 +232,9 @@ playerIndexSection.index.re...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
     </Node>
-    <Node ToolID="18">
+    <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="462" y="354" />
+        <Position x="426" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -611,9 +270,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="19">
+    <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1518" y="354" />
+        <Position x="1482" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -643,13 +302,13 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="20">
+    <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1710" y="354" />
+        <Position x="1674" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_1752_6bfdfae9433c46e5bd3310f83bda63f4_\Engine_15352_ba3af14871504d1e8639833a98c24e55_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9496_839b32dcfc584af89608ae7d9c5d4ac8_\Engine_15352_54d20ed2dc8d4a058b3c8a4b2d30b338_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -666,9 +325,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="21">
+    <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="150" y="222" />
+        <Position x="114" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -688,9 +347,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="22">
+    <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="462" y="222" />
+        <Position x="426" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -724,9 +383,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="23">
+    <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="570" y="222" />
+        <Position x="534" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -760,9 +419,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="24">
+    <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-        <Position x="1134" y="222" />
+        <Position x="1098" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -789,9 +448,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
     </Node>
-    <Node ToolID="25">
+    <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="918" y="354" />
+        <Position x="882" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -812,9 +471,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
     </Node>
-    <Node ToolID="26">
+    <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1062" y="222" />
+        <Position x="1026" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -832,9 +491,9 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="27">
+    <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
-        <Position x="1182" y="354" />
+        <Position x="1146" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -866,27 +525,27 @@ $2</DefaultAnnotationText>
             <Field name="RecordID" source="CrossTab:Group:First:" type="Int32" />
             <Field description="RegEx: Parsed from JSON_Name" name="PlayerId" source="CrossTab:Group:First:" type="Byte" />
             <Field description="RegEx: Parsed from DownloadData" name="25_man_squad_member" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Age" source="(Multiple Sources)" type="Byte" />
+            <Field description="RegEx: Parsed from DownloadData" name="Age" size="2" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="Appearances" source="(Multiple Sources)" type="Int16" />
             <Field description="RegEx: Parsed from DownloadData" name="Country_of_birth" size="37" source="(Multiple Sources)" type="V_String" />
             <Field description="RegEx: Parsed from DownloadData" name="Date_of_birth" size="10" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="Goals" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Height" source="(Multiple Sources)" type="Double" />
+            <Field description="RegEx: Parsed from DownloadData" name="Height" size="6" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="National_team" size="37" source="(Multiple Sources)" type="V_String" />
             <Field description="RegEx: Parsed from DownloadData" name="PlayerImage" size="88" source="(Multiple Sources)" type="V_String" />
             <Field description="RegEx: Parsed from DownloadData" name="position" size="10" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="Red_cards" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Titles_won" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Weight" source="(Multiple Sources)" type="Byte" />
+            <Field description="RegEx: Parsed from DownloadData" name="Titles_won" size="1" source="(Multiple Sources)" type="String" />
+            <Field description="RegEx: Parsed from DownloadData" name="Weight" size="5" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="Yellow_cards" source="(Multiple Sources)" type="Byte" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
     </Node>
-    <Node ToolID="28">
+    <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="570" y="354" />
+        <Position x="534" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -904,30 +563,28 @@ $2</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
-    <Node ToolID="29">
+    <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="666" y="354" />
+        <Position x="630" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField field="Value" type="V_WString" size="1073741823" expression="IIF([Field]='25-man squad member','1',&#xA;IIF([Field]='National team',REGEX_Replace([Value],'.*Title=&quot;([^&quot;]*)&quot;.*',&quot;$1&quot;),&#xA;IIF([Field]='Weight',REGEX_Replace([Value],'([0-9\.-]*) kg',&quot;$1&quot;),&#xA;IIF([Field]='Height',REGEX_Replace([Value],'([0-9\.-]*) m',&quot;$1&quot;),&#xA;[Value]))))" />
-            <FormulaField field="Value" type="V_WString" size="1073741823" expression="iiF([Value]='-',NULL(),[Value])" />
+            <FormulaField field="Value" type="V_WString" size="1073741823" expression="IIF([Field]='25-man squad member','1',&#xA;IIF([Field]='National team',REGEX_Replace([Value],'.*Title=&quot;([^&quot;]*)&quot;.*',&quot;$1&quot;),&#xA;[Value]))" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>Value=IIF([Field]='25-man squad member','1',
-IIF([Field]='Nat...
-Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
+IIF([Field]='Nat...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
-    <Node ToolID="30">
+    <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1614" y="354" />
+        <Position x="1578" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -963,9 +620,32 @@ Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
     </Node>
-    <Node ToolID="32">
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="126" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9496_839b32dcfc584af89608ae7d9c5d4ac8_\Engine_15352_b514a85dbd504de8b3c758ae7794e1d9_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1014" y="354" />
+        <Position x="978" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -983,9 +663,9 @@ Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
-    <Node ToolID="33">
+    <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1206" y="222" />
+        <Position x="1170" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1003,9 +683,9 @@ Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="34">
+    <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="678" y="222" />
+        <Position x="642" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1039,9 +719,9 @@ Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="35">
+    <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="798" y="222" />
+        <Position x="762" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1075,9 +755,9 @@ Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="36">
+    <Node ToolID="41">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
-        <Position x="1254" y="354" />
+        <Position x="1218" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1095,9 +775,9 @@ dd/MM/yyyy</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
     </Node>
-    <Node ToolID="37">
+    <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1326" y="354" />
+        <Position x="1290" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1116,27 +796,25 @@ dd/MM/yyyy</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="38">
+    <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1422" y="354" />
+        <Position x="1386" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <FormulaFields>
-            <FormulaField field="Age" type="Byte" size="1" expression="DateTimeDiff(DateTimeToday(),[Date_of_birth],&quot;years&quot;)" />
-          </FormulaFields>
+          <FormulaFields />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Age=DateTimeDiff(DateTimeToday(),[Date_of_birth],"years")</DefaultAnnotationText>
+          <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
-    <Node ToolID="39">
+    <Node ToolID="44">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="906" y="222" />
+        <Position x="870" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1170,9 +848,9 @@ dd/MM/yyyy</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="40">
+    <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="990" y="222" />
+        <Position x="954" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1210,151 +888,95 @@ dd/MM/yyyy</DefaultAnnotationText>
   <Connections>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="34" Connection="Left" />
     </Connection>
     <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="3" Connection="Input" />
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="34" Connection="Right" />
     </Connection>
     <Connection>
-      <Origin ToolID="3" Connection="Output" />
-      <Destination ToolID="4" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="4" Connection="True" />
-      <Destination ToolID="5" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="6" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="Output" />
-      <Destination ToolID="8" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="7" Connection="Output" />
-      <Destination ToolID="2" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="8" Connection="Output" />
-      <Destination ToolID="10" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="9" Connection="Output" />
-      <Destination ToolID="11" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="9" Connection="Input" />
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="11" Connection="Output" />
-      <Destination ToolID="21" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="11" Connection="Output" />
-      <Destination ToolID="30" Connection="Left" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="19" Connection="Output" />
-      <Destination ToolID="30" Connection="Right" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="13" Connection="Output" />
       <Destination ToolID="14" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="22" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="15" Connection="Output" />
-      <Destination ToolID="16" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="16" Connection="Output" />
-      <Destination ToolID="18" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="17" Connection="Output" />
-      <Destination ToolID="27" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="18" Connection="Output" />
-      <Destination ToolID="28" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="21" Connection="Output" />
-      <Destination ToolID="13" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="21" Connection="Output" />
-      <Destination ToolID="15" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="22" Connection="Output" />
       <Destination ToolID="23" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="23" Connection="Output" />
-      <Destination ToolID="34" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="33" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="25" Connection="Output" />
-      <Destination ToolID="32" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="26" Connection="Output" />
-      <Destination ToolID="24" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="27" Connection="Output" />
-      <Destination ToolID="36" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="28" Connection="True" />
-      <Destination ToolID="29" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="25" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="33" Connection="Output" />
-      <Destination ToolID="25" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="30" Connection="Join" />
-      <Destination ToolID="20" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="32" Connection="True" />
+      <Origin ToolID="16" Connection="Output" />
       <Destination ToolID="17" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="34" Connection="Output" />
-      <Destination ToolID="35" Connection="Input" />
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="35" Connection="Output" />
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
       <Destination ToolID="39" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="36" Connection="Output" />
-      <Destination ToolID="37" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="37" Connection="Output" />
+      <Origin ToolID="25" Connection="Output" />
       <Destination ToolID="38" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="True" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
       <Origin ToolID="38" Connection="Output" />
-      <Destination ToolID="19" Connection="Input" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Join" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="True" />
+      <Destination ToolID="18" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="39" Connection="Output" />
@@ -1362,7 +984,27 @@ dd/MM/yyyy</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="40" Connection="Output" />
-      <Destination ToolID="26" Connection="Input" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1383,7 +1025,7 @@ dd/MM/yyyy</DefaultAnnotationText>
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>playerStats</Name>
+      <Name>playerParser</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
