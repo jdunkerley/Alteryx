@@ -308,7 +308,7 @@ $2</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9496_839b32dcfc584af89608ae7d9c5d4ac8_\Engine_15352_54d20ed2dc8d4a058b3c8a4b2d30b338_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_16908_f5e5d91ec59c4ed8987a3870eb3acad8_\Engine_15352_27ffa189485f4780acb82066f407e50d_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -525,18 +525,18 @@ $2</DefaultAnnotationText>
             <Field name="RecordID" source="CrossTab:Group:First:" type="Int32" />
             <Field description="RegEx: Parsed from JSON_Name" name="PlayerId" source="CrossTab:Group:First:" type="Byte" />
             <Field description="RegEx: Parsed from DownloadData" name="25_man_squad_member" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Age" size="2" source="(Multiple Sources)" type="String" />
+            <Field description="RegEx: Parsed from DownloadData" name="Age" source="(Multiple Sources)" type="Byte" />
             <Field description="RegEx: Parsed from DownloadData" name="Appearances" source="(Multiple Sources)" type="Int16" />
             <Field description="RegEx: Parsed from DownloadData" name="Country_of_birth" size="37" source="(Multiple Sources)" type="V_String" />
             <Field description="RegEx: Parsed from DownloadData" name="Date_of_birth" size="10" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="Goals" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Height" size="6" source="(Multiple Sources)" type="String" />
+            <Field description="RegEx: Parsed from DownloadData" name="Height" source="(Multiple Sources)" type="Double" />
             <Field description="RegEx: Parsed from DownloadData" name="National_team" size="37" source="(Multiple Sources)" type="V_String" />
             <Field description="RegEx: Parsed from DownloadData" name="PlayerImage" size="88" source="(Multiple Sources)" type="V_String" />
             <Field description="RegEx: Parsed from DownloadData" name="position" size="10" source="(Multiple Sources)" type="String" />
             <Field description="RegEx: Parsed from DownloadData" name="Red_cards" source="(Multiple Sources)" type="Byte" />
-            <Field description="RegEx: Parsed from DownloadData" name="Titles_won" size="1" source="(Multiple Sources)" type="String" />
-            <Field description="RegEx: Parsed from DownloadData" name="Weight" size="5" source="(Multiple Sources)" type="String" />
+            <Field description="RegEx: Parsed from DownloadData" name="Titles_won" source="(Multiple Sources)" type="Byte" />
+            <Field description="RegEx: Parsed from DownloadData" name="Weight" source="(Multiple Sources)" type="Byte" />
             <Field description="RegEx: Parsed from DownloadData" name="Yellow_cards" source="(Multiple Sources)" type="Byte" />
           </RecordInfo>
         </MetaInfo>
@@ -570,13 +570,15 @@ $2</DefaultAnnotationText>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField field="Value" type="V_WString" size="1073741823" expression="IIF([Field]='25-man squad member','1',&#xA;IIF([Field]='National team',REGEX_Replace([Value],'.*Title=&quot;([^&quot;]*)&quot;.*',&quot;$1&quot;),&#xA;[Value]))" />
+            <FormulaField field="Value" type="V_WString" size="1073741823" expression="IIF([Field]='25-man squad member','1',&#xA;IIF([Field]='National team',REGEX_Replace([Value],'.*Title=&quot;([^&quot;]*)&quot;.*',&quot;$1&quot;),&#xA;IIF([Field]='Weight',REGEX_Replace([Value],'([0-9\.-]*) kg',&quot;$1&quot;),&#xA;IIF([Field]='Height',REGEX_Replace([Value],'([0-9\.-]*) m',&quot;$1&quot;),&#xA;[Value]))))" />
+            <FormulaField field="Value" type="V_WString" size="1073741823" expression="iiF([Value]='-',NULL(),[Value])" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>Value=IIF([Field]='25-man squad member','1',
-IIF([Field]='Nat...</DefaultAnnotationText>
+IIF([Field]='Nat...
+Value=iiF([Value]='-',NULL(),[Value])</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -626,7 +628,7 @@ IIF([Field]='Nat...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9496_839b32dcfc584af89608ae7d9c5d4ac8_\Engine_15352_b514a85dbd504de8b3c758ae7794e1d9_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_16908_f5e5d91ec59c4ed8987a3870eb3acad8_\Engine_15352_5b87a52b0fcf43d781d69f5bb39c1f1e_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
