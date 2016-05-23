@@ -1,0 +1,2267 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="210" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>StartsWith([DownloadData],'"TIV of arms exports from ')</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>StartsWith([DownloadData],'"TIV of arms exports from ')</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1926" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6160_64ae9732a5cd41baa0bf76f3ebd58e74_\Engine_17024_7e375d29cf3540ebbbaf179723bd1d71_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="318" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="country_code" selected="False" />
+            <SelectField field="country" selected="True" rename="Source" />
+            <SelectField field="Uri" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="402" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <NumFields value="1" />
+          <Delimeters value="\r\n" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="498" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Source</UpdateField_Name>
+          <CreateField_Name>RowID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:RowID]+1</Expression>
+          <GroupByFields>
+            <Field field="Source" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Row-1:RowID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="606" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>RowID</Field>
+            <Operator>&gt;=</Operator>
+            <Operands>
+              <Operand>11</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[RowID] &gt;= 11</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="702" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <NumFields value="1" />
+          <Delimeters value="," />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="798" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Source</UpdateField_Name>
+          <CreateField_Name>ColID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:ColID]+1</Expression>
+          <GroupByFields>
+            <Field field="Source" />
+            <Field field="RowID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Row-1:ColID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="906" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>RowID</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>11</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[RowID] = 11</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1038" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Source" />
+            <Field field="ColID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Source" />
+            <Field field="ColID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Left_Source" selected="True" />
+                <SelectField field="Right_RowID" selected="True" rename="Right_RowID" />
+                <SelectField field="Left_RowID" selected="False" />
+                <SelectField field="Left_DownloadData" selected="True" rename="Header" />
+                <SelectField field="Left_ColID" selected="True" />
+                <SelectField field="Right_Source" selected="False" rename="Right_Source" />
+                <SelectField field="Right_DownloadData" selected="True" rename="Value" />
+                <SelectField field="Right_ColID" selected="False" rename="Right_ColID" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1122" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>ColID</Field>
+            <Operator>!=</Operator>
+            <Operands>
+              <Operand>1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[ColID] != 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1206" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Header" type="V_WString" size="1073741823" expression="IIF(ColID=2,&quot;Destination&quot;,Header)" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Header=IIF(ColID=2,"Destination",Header)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="1302" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Source" />
+            <Field field="Right_RowID" />
+          </GroupFields>
+          <HeaderField field="Header" />
+          <DataField field="Value" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="RegEx: Parsed from Field_1" name="Source" size="6500" source="CrossTab:Group:First:" type="V_String" />
+            <Field description="Formula: [Row-1:RowID]+1" name="Right_RowID" source="CrossTab:Group:First:" type="Int32" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1950" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1951" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1952" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1953" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1954" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1955" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1956" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1957" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1958" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1959" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1960" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1961" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1962" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1963" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1964" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1965" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1966" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1967" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1968" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1969" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1970" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1971" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1972" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1973" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1974" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1975" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1976" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1977" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1978" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1979" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1980" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1981" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1982" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1983" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1984" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1985" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1986" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1987" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1988" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1989" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1990" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1991" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1992" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1993" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1994" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1995" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1996" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1997" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1998" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="1999" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2000" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2001" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2002" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2003" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2004" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2005" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2006" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2007" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2008" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2009" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2010" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2011" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2012" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2013" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2014" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="2015" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Destination" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Total" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Source" order="Asc" />
+            <Field field="Right_RowID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1386" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Source" selected="True" />
+            <SelectField field="Destination" selected="True" />
+            <SelectField field="Right_RowID" selected="False" />
+            <SelectField field="1950" selected="True" />
+            <SelectField field="1951" selected="True" />
+            <SelectField field="1952" selected="True" />
+            <SelectField field="1953" selected="True" />
+            <SelectField field="1954" selected="True" />
+            <SelectField field="1955" selected="True" />
+            <SelectField field="1956" selected="True" />
+            <SelectField field="1957" selected="True" />
+            <SelectField field="1958" selected="True" />
+            <SelectField field="1959" selected="True" />
+            <SelectField field="1960" selected="True" />
+            <SelectField field="1961" selected="True" />
+            <SelectField field="1962" selected="True" />
+            <SelectField field="1963" selected="True" />
+            <SelectField field="1964" selected="True" />
+            <SelectField field="1965" selected="True" />
+            <SelectField field="1966" selected="True" />
+            <SelectField field="1967" selected="True" />
+            <SelectField field="1968" selected="True" />
+            <SelectField field="1969" selected="True" />
+            <SelectField field="1970" selected="True" />
+            <SelectField field="1971" selected="True" />
+            <SelectField field="1972" selected="True" />
+            <SelectField field="1973" selected="True" />
+            <SelectField field="1974" selected="True" />
+            <SelectField field="1975" selected="True" />
+            <SelectField field="1976" selected="True" />
+            <SelectField field="1977" selected="True" />
+            <SelectField field="1978" selected="True" />
+            <SelectField field="1979" selected="True" />
+            <SelectField field="1980" selected="True" />
+            <SelectField field="1981" selected="True" />
+            <SelectField field="1982" selected="True" />
+            <SelectField field="1983" selected="True" />
+            <SelectField field="1984" selected="True" />
+            <SelectField field="1985" selected="True" />
+            <SelectField field="1986" selected="True" />
+            <SelectField field="1987" selected="True" />
+            <SelectField field="1988" selected="True" />
+            <SelectField field="1989" selected="True" />
+            <SelectField field="1990" selected="True" />
+            <SelectField field="1991" selected="True" />
+            <SelectField field="1992" selected="True" />
+            <SelectField field="1993" selected="True" />
+            <SelectField field="1994" selected="True" />
+            <SelectField field="1995" selected="True" />
+            <SelectField field="1996" selected="True" />
+            <SelectField field="1997" selected="True" />
+            <SelectField field="1998" selected="True" />
+            <SelectField field="1999" selected="True" />
+            <SelectField field="2000" selected="True" />
+            <SelectField field="2001" selected="True" />
+            <SelectField field="2002" selected="True" />
+            <SelectField field="2003" selected="True" />
+            <SelectField field="2004" selected="True" />
+            <SelectField field="2005" selected="True" />
+            <SelectField field="2006" selected="True" />
+            <SelectField field="2007" selected="True" />
+            <SelectField field="2008" selected="True" />
+            <SelectField field="2009" selected="True" />
+            <SelectField field="2010" selected="True" />
+            <SelectField field="2011" selected="True" />
+            <SelectField field="2012" selected="True" />
+            <SelectField field="2013" selected="True" />
+            <SelectField field="2014" selected="True" />
+            <SelectField field="2015" selected="True" />
+            <SelectField field="Total" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1470" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Destination]!=""</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Destination]!=""</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="1578" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Source" />
+            <Field field="Destination" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Source" selected="False" />
+            <Field field="Destination" selected="False" />
+            <Field field="1950" selected="True" />
+            <Field field="1951" selected="True" />
+            <Field field="1952" selected="True" />
+            <Field field="1953" selected="True" />
+            <Field field="1954" selected="True" />
+            <Field field="1955" selected="True" />
+            <Field field="1956" selected="True" />
+            <Field field="1957" selected="True" />
+            <Field field="1958" selected="True" />
+            <Field field="1959" selected="True" />
+            <Field field="1960" selected="True" />
+            <Field field="1961" selected="True" />
+            <Field field="1962" selected="True" />
+            <Field field="1963" selected="True" />
+            <Field field="1964" selected="True" />
+            <Field field="1965" selected="True" />
+            <Field field="1966" selected="True" />
+            <Field field="1967" selected="True" />
+            <Field field="1968" selected="True" />
+            <Field field="1969" selected="True" />
+            <Field field="1970" selected="True" />
+            <Field field="1971" selected="True" />
+            <Field field="1972" selected="True" />
+            <Field field="1973" selected="True" />
+            <Field field="1974" selected="True" />
+            <Field field="1975" selected="True" />
+            <Field field="1976" selected="True" />
+            <Field field="1977" selected="True" />
+            <Field field="1978" selected="True" />
+            <Field field="1979" selected="True" />
+            <Field field="1980" selected="True" />
+            <Field field="1981" selected="True" />
+            <Field field="1982" selected="True" />
+            <Field field="1983" selected="True" />
+            <Field field="1984" selected="True" />
+            <Field field="1985" selected="True" />
+            <Field field="1986" selected="True" />
+            <Field field="1987" selected="True" />
+            <Field field="1988" selected="True" />
+            <Field field="1989" selected="True" />
+            <Field field="1990" selected="True" />
+            <Field field="1991" selected="True" />
+            <Field field="1992" selected="True" />
+            <Field field="1993" selected="True" />
+            <Field field="1994" selected="True" />
+            <Field field="1995" selected="True" />
+            <Field field="1996" selected="True" />
+            <Field field="1997" selected="True" />
+            <Field field="1998" selected="True" />
+            <Field field="1999" selected="True" />
+            <Field field="2000" selected="True" />
+            <Field field="2001" selected="True" />
+            <Field field="2002" selected="True" />
+            <Field field="2003" selected="True" />
+            <Field field="2004" selected="True" />
+            <Field field="2005" selected="True" />
+            <Field field="2006" selected="True" />
+            <Field field="2007" selected="True" />
+            <Field field="2008" selected="True" />
+            <Field field="2009" selected="True" />
+            <Field field="2010" selected="True" />
+            <Field field="2011" selected="True" />
+            <Field field="2012" selected="True" />
+            <Field field="2013" selected="True" />
+            <Field field="2014" selected="True" />
+            <Field field="2015" selected="True" />
+            <Field field="Total" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1662" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Value] != ""
+AND 
+Name != "Total"</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Value] != ""
+AND 
+Name != "Total"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="1758" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="Source" selected="True" />
+            <Field field="Destination" selected="True" />
+            <Field field="Name" selected="True" />
+            <Field field="Value" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="RegEx: Parsed from Field_1" name="Source" size="24" source="CrossTab:Group:First:" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Destination" size="32" source="TextToColumns: Parsed from DownloadData" type="V_String" />
+            <Field name="Name" source="Transpose:" type="Int16" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="Value" source="TextToColumns: Parsed from DownloadData" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1842" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Name" selected="True" rename="Year" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="1638" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="220" />
+          <Fields>
+            <Field name="Destination" />
+            <Field name="Latitude (generated)" />
+            <Field name="Longitude (generated)" />
+          </Fields>
+          <Data>
+            <r>
+              <c>Zimbabwe</c>
+              <c>-19.098</c>
+              <c>30.047</c>
+            </r>
+            <r>
+              <c>Zambia</c>
+              <c>-15.13</c>
+              <c>25.268</c>
+            </r>
+            <r>
+              <c>Yugoslavia</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Yemen</c>
+              <c>15.569</c>
+              <c>47.793</c>
+            </r>
+            <r>
+              <c>Western Sahara</c>
+              <c>23.938</c>
+              <c>-12.614</c>
+            </r>
+            <r>
+              <c>Viet Nam</c>
+              <c>21.75</c>
+              <c>105.373</c>
+            </r>
+            <r>
+              <c>Viet Minh (France)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Venezuela</c>
+              <c>6.983</c>
+              <c>-64.588</c>
+            </r>
+            <r>
+              <c>Vanuatu</c>
+              <c>-15.339</c>
+              <c>166.89</c>
+            </r>
+            <r>
+              <c>Uzbekistan</c>
+              <c>41.757</c>
+              <c>63.958</c>
+            </r>
+            <r>
+              <c>Uruguay</c>
+              <c>-32.948</c>
+              <c>-56.249</c>
+            </r>
+            <r>
+              <c>Unknown country</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>United States</c>
+              <c>40.731</c>
+              <c>-99.225</c>
+            </r>
+            <r>
+              <c>United Nations**</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>United Kingdom</c>
+              <c>52.289</c>
+              <c>-1.259</c>
+            </r>
+            <r>
+              <c>UNITA (Angola)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Ukraine Rebels*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Ukraine</c>
+              <c>49.364</c>
+              <c>32.132</c>
+            </r>
+            <r>
+              <c>UIC (Somalia)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Uganda</c>
+              <c>2.085</c>
+              <c>32.722</c>
+            </r>
+            <r>
+              <c>UAE</c>
+              <c>23.431</c>
+              <c>54.446</c>
+            </r>
+            <r>
+              <c>Tuvalu</c>
+              <c>-7.48</c>
+              <c>178.68</c>
+            </r>
+            <r>
+              <c>Turkmenistan</c>
+              <c>39.584</c>
+              <c>59.597</c>
+            </r>
+            <r>
+              <c>Turkey</c>
+              <c>39.144</c>
+              <c>34.188</c>
+            </r>
+            <r>
+              <c>Tunisia</c>
+              <c>35.594</c>
+              <c>9.421</c>
+            </r>
+            <r>
+              <c>Trinidad and Tobago</c>
+              <c>10.448</c>
+              <c>-61.257</c>
+            </r>
+            <r>
+              <c>Total</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Tonga</c>
+              <c>-21.167</c>
+              <c>-175.19</c>
+            </r>
+            <r>
+              <c>Togo</c>
+              <c>7.7</c>
+              <c>1.106</c>
+            </r>
+            <r>
+              <c>Timor-Leste</c>
+              <c>-8.856</c>
+              <c>125.556</c>
+            </r>
+            <r>
+              <c>Thailand</c>
+              <c>15.688</c>
+              <c>100.845</c>
+            </r>
+            <r>
+              <c>Tanzania</c>
+              <c>-5.651</c>
+              <c>34.146</c>
+            </r>
+            <r>
+              <c>Tajikistan</c>
+              <c>38.367</c>
+              <c>72.597</c>
+            </r>
+            <r>
+              <c>Taiwan (ROC)</c>
+              <c>23.513</c>
+              <c>120.797</c>
+            </r>
+            <r>
+              <c>Syria</c>
+              <c>35.303</c>
+              <c>38.322</c>
+            </r>
+            <r>
+              <c>Switzerland</c>
+              <c>47.012</c>
+              <c>8.351</c>
+            </r>
+            <r>
+              <c>Sweden</c>
+              <c>65.903</c>
+              <c>18.572</c>
+            </r>
+            <r>
+              <c>Swaziland</c>
+              <c>-26.596</c>
+              <c>31.47</c>
+            </r>
+            <r>
+              <c>Suriname</c>
+              <c>4.248</c>
+              <c>-55.848</c>
+            </r>
+            <r>
+              <c>Sudan</c>
+              <c>15.739</c>
+              <c>29.533</c>
+            </r>
+            <r>
+              <c>Sri Lanka</c>
+              <c>7.3</c>
+              <c>80.727</c>
+            </r>
+            <r>
+              <c>Spain</c>
+              <c>40.617</c>
+              <c>-3.388</c>
+            </r>
+            <r>
+              <c>Soviet Union</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Southern rebels (Yemen)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>South Yemen</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>South Vietnam</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>South Sudan</c>
+              <c>7.1</c>
+              <c>30.48</c>
+            </r>
+            <r>
+              <c>South Korea</c>
+              <c>36.338</c>
+              <c>128.16</c>
+            </r>
+            <r>
+              <c>South Africa</c>
+              <c>-31.7</c>
+              <c>23.441</c>
+            </r>
+            <r>
+              <c>Somalia</c>
+              <c>2.875</c>
+              <c>43.446</c>
+            </r>
+            <r>
+              <c>Solomon Islands</c>
+              <c>-9.611</c>
+              <c>160.19</c>
+            </r>
+            <r>
+              <c>SNA (Somalia)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Slovenia</c>
+              <c>46.037</c>
+              <c>14.534</c>
+            </r>
+            <r>
+              <c>Slovakia</c>
+              <c>48.757</c>
+              <c>18.957</c>
+            </r>
+            <r>
+              <c>SLA (Lebanon)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Singapore</c>
+              <c>1.364</c>
+              <c>103.81</c>
+            </r>
+            <r>
+              <c>Sierra Leone</c>
+              <c>8.677</c>
+              <c>-11.779</c>
+            </r>
+            <r>
+              <c>Seychelles</c>
+              <c>-4.627</c>
+              <c>55.461</c>
+            </r>
+            <r>
+              <c>Serbia</c>
+              <c>44.021</c>
+              <c>20.699</c>
+            </r>
+            <r>
+              <c>Senegal</c>
+              <c>15.044</c>
+              <c>-15.081</c>
+            </r>
+            <r>
+              <c>Saudi Arabia</c>
+              <c>24.191</c>
+              <c>44.32</c>
+            </r>
+            <r>
+              <c>Samoa</c>
+              <c>-13.625</c>
+              <c>-172.42</c>
+            </r>
+            <r>
+              <c>Rwanda</c>
+              <c>-1.887</c>
+              <c>29.904</c>
+            </r>
+            <r>
+              <c>Russia</c>
+              <c>64.736</c>
+              <c>104.062</c>
+            </r>
+            <r>
+              <c>Romania</c>
+              <c>45.933</c>
+              <c>25.119</c>
+            </r>
+            <r>
+              <c>Qatar</c>
+              <c>25.168</c>
+              <c>51.17</c>
+            </r>
+            <r>
+              <c>Provisional IRA (UK)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>PRC (Israel/Palestine)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Portugal</c>
+              <c>40.957</c>
+              <c>-7.799</c>
+            </r>
+            <r>
+              <c>Poland</c>
+              <c>52.442</c>
+              <c>19.72</c>
+            </r>
+            <r>
+              <c>PLO (Israel)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Philippines</c>
+              <c>17.181</c>
+              <c>121.256</c>
+            </r>
+            <r>
+              <c>Peru</c>
+              <c>-12.664</c>
+              <c>-72.98</c>
+            </r>
+            <r>
+              <c>Paraguay</c>
+              <c>-23.266</c>
+              <c>-58.409</c>
+            </r>
+            <r>
+              <c>Papua New Guinea</c>
+              <c>-5.636</c>
+              <c>142.798</c>
+            </r>
+            <r>
+              <c>Panama</c>
+              <c>8.348</c>
+              <c>-81.005</c>
+            </r>
+            <r>
+              <c>Palestine</c>
+              <c>32.097</c>
+              <c>35.26</c>
+            </r>
+            <r>
+              <c>Palau</c>
+              <c>7.473</c>
+              <c>134.549</c>
+            </r>
+            <r>
+              <c>Pakistan</c>
+              <c>27.618</c>
+              <c>66.604</c>
+            </r>
+            <r>
+              <c>Oman</c>
+              <c>19.85</c>
+              <c>56.25</c>
+            </r>
+            <r>
+              <c>Norway</c>
+              <c>61.155</c>
+              <c>9.77</c>
+            </r>
+            <r>
+              <c>Northern Alliance (Afghanistan)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>North Yemen</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>North Korea</c>
+              <c>39.767</c>
+              <c>126.389</c>
+            </r>
+            <r>
+              <c>Nigeria</c>
+              <c>9.3417</c>
+              <c>7.678</c>
+            </r>
+            <r>
+              <c>Niger</c>
+              <c>16.996</c>
+              <c>9.915</c>
+            </r>
+            <r>
+              <c>Nicaragua</c>
+              <c>12.692</c>
+              <c>-85.03</c>
+            </r>
+            <r>
+              <c>New Zealand</c>
+              <c>-42.558</c>
+              <c>172.377</c>
+            </r>
+            <r>
+              <c>Netherlands</c>
+              <c>52.426</c>
+              <c>5.721</c>
+            </r>
+            <r>
+              <c>Nepal</c>
+              <c>28.929</c>
+              <c>82.16</c>
+            </r>
+            <r>
+              <c>NATO**</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Namibia</c>
+              <c>-21.276</c>
+              <c>17.219</c>
+            </r>
+            <r>
+              <c>Myanmar</c>
+              <c>21.841</c>
+              <c>96.05</c>
+            </r>
+            <r>
+              <c>Mujahedin (Afghanistan)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>MTA (Myanmar)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Mozambique</c>
+              <c>-13.852</c>
+              <c>38.042</c>
+            </r>
+            <r>
+              <c>Morocco</c>
+              <c>31.129</c>
+              <c>-7.355</c>
+            </r>
+            <r>
+              <c>Montenegro</c>
+              <c>42.857</c>
+              <c>19.096</c>
+            </r>
+            <r>
+              <c>Mongolia</c>
+              <c>46.516</c>
+              <c>102.564</c>
+            </r>
+            <r>
+              <c>Moldova</c>
+              <c>47.524</c>
+              <c>28.444</c>
+            </r>
+            <r>
+              <c>MNLF (Philippines)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Micronesia</c>
+              <c>7.531</c>
+              <c>150.457</c>
+            </r>
+            <r>
+              <c>Mexico</c>
+              <c>22.925</c>
+              <c>-101.68</c>
+            </r>
+            <r>
+              <c>Mauritius</c>
+              <c>-20.323</c>
+              <c>57.518</c>
+            </r>
+            <r>
+              <c>Mauritania</c>
+              <c>19.413</c>
+              <c>-10.6528</c>
+            </r>
+            <r>
+              <c>Marshall Islands</c>
+              <c>5.961</c>
+              <c>169.651</c>
+            </r>
+            <r>
+              <c>Malta</c>
+              <c>35.884</c>
+              <c>14.446</c>
+            </r>
+            <r>
+              <c>Mali</c>
+              <c>18.211</c>
+              <c>-2.209</c>
+            </r>
+            <r>
+              <c>Maldives</c>
+              <c>4.221</c>
+              <c>73.463</c>
+            </r>
+            <r>
+              <c>Malaysia</c>
+              <c>4.416</c>
+              <c>102.099</c>
+            </r>
+            <r>
+              <c>Malawi</c>
+              <c>-13.258</c>
+              <c>33.723</c>
+            </r>
+            <r>
+              <c>Madagascar</c>
+              <c>-19.615</c>
+              <c>46.645</c>
+            </r>
+            <r>
+              <c>Macedonia (FYROM)</c>
+              <c>41.636</c>
+              <c>21.676</c>
+            </r>
+            <r>
+              <c>Luxembourg</c>
+              <c>49.671</c>
+              <c>6.113</c>
+            </r>
+            <r>
+              <c>LTTE (Sri Lanka)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Lithuania</c>
+              <c>55.342</c>
+              <c>24.23</c>
+            </r>
+            <r>
+              <c>Libya</c>
+              <c>27.24</c>
+              <c>17.571</c>
+            </r>
+            <r>
+              <c>Liberia</c>
+              <c>6.51</c>
+              <c>-9.33</c>
+            </r>
+            <r>
+              <c>LF (Lebanon)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Lesotho</c>
+              <c>-29.446</c>
+              <c>28.371</c>
+            </r>
+            <r>
+              <c>Lebanon</c>
+              <c>34.161</c>
+              <c>36.021</c>
+            </r>
+            <r>
+              <c>Latvia</c>
+              <c>56.874</c>
+              <c>26.263</c>
+            </r>
+            <r>
+              <c>Laos</c>
+              <c>19.595</c>
+              <c>102.538</c>
+            </r>
+            <r>
+              <c>Kyrgyzstan</c>
+              <c>41.741</c>
+              <c>75.043</c>
+            </r>
+            <r>
+              <c>Kuwait</c>
+              <c>29.396</c>
+              <c>47.326</c>
+            </r>
+            <r>
+              <c>Kiribati</c>
+              <c>2.048</c>
+              <c>-158.59</c>
+            </r>
+            <r>
+              <c>Khmer Rouge (Cambodia)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Kenya</c>
+              <c>0.806</c>
+              <c>38.166</c>
+            </r>
+            <r>
+              <c>Kazakhstan</c>
+              <c>48.866</c>
+              <c>69.772</c>
+            </r>
+            <r>
+              <c>Katanga</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Jordan</c>
+              <c>30.681</c>
+              <c>36.279</c>
+            </r>
+            <r>
+              <c>Japan</c>
+              <c>35.962</c>
+              <c>137.855</c>
+            </r>
+            <r>
+              <c>Jamaica</c>
+              <c>18.163</c>
+              <c>-77.477</c>
+            </r>
+            <r>
+              <c>Italy</c>
+              <c>44.3713</c>
+              <c>11.1084</c>
+            </r>
+            <r>
+              <c>Israel</c>
+              <c>30.992</c>
+              <c>34.834</c>
+            </r>
+            <r>
+              <c>Ireland</c>
+              <c>53.214</c>
+              <c>-7.588</c>
+            </r>
+            <r>
+              <c>Iraq</c>
+              <c>33.545</c>
+              <c>43.278</c>
+            </r>
+            <r>
+              <c>Iran</c>
+              <c>33.408</c>
+              <c>54.0418</c>
+            </r>
+            <r>
+              <c>Indonesia</c>
+              <c>-0.739</c>
+              <c>114.045</c>
+            </r>
+            <r>
+              <c>India</c>
+              <c>22.741</c>
+              <c>78.236</c>
+            </r>
+            <r>
+              <c>Iceland</c>
+              <c>64.826</c>
+              <c>-18.417</c>
+            </r>
+            <r>
+              <c>Hungary</c>
+              <c>47.174</c>
+              <c>19.618</c>
+            </r>
+            <r>
+              <c>Honduras</c>
+              <c>14.881</c>
+              <c>-87.123</c>
+            </r>
+            <r>
+              <c>Hezbollah (Lebanon)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Hamas (Palestine)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Haiti</c>
+              <c>19.302</c>
+              <c>-72.273</c>
+            </r>
+            <r>
+              <c>Guyana</c>
+              <c>5.17</c>
+              <c>-58.939</c>
+            </r>
+            <r>
+              <c>GUNT (Chad)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Guinea-Bissau</c>
+              <c>12.191</c>
+              <c>-14.475</c>
+            </r>
+            <r>
+              <c>Guinea</c>
+              <c>10.599</c>
+              <c>-10.907</c>
+            </r>
+            <r>
+              <c>Guatemala</c>
+              <c>15.124</c>
+              <c>-90.711</c>
+            </r>
+            <r>
+              <c>Greece</c>
+              <c>39.787</c>
+              <c>21.617</c>
+            </r>
+            <r>
+              <c>Ghana</c>
+              <c>7.258</c>
+              <c>-1.062</c>
+            </r>
+            <r>
+              <c>Germany (FRG)</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Georgia</c>
+              <c>42.05</c>
+              <c>43.576</c>
+            </r>
+            <r>
+              <c>Gambia</c>
+              <c>13.499</c>
+              <c>-14.641</c>
+            </r>
+            <r>
+              <c>Gabon</c>
+              <c>-0.406</c>
+              <c>11.914</c>
+            </r>
+            <r>
+              <c>France</c>
+              <c>46.656</c>
+              <c>2.543</c>
+            </r>
+            <r>
+              <c>FNLA (Angola)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>FMLN (El Salvador)*</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Finland</c>
+              <c>62.716</c>
+              <c>26.192</c>
+            </r>
+            <r>
+              <c>Fiji</c>
+              <c>-17.15</c>
+              <c>177.186</c>
+            </r>
+            <r>
+              <c>Ethiopia</c>
+              <c>8.435</c>
+              <c>38.786</c>
+            </r>
+            <r>
+              <c>Estonia</c>
+              <c>58.777</c>
+              <c>25.977</c>
+            </r>
+            <r>
+              <c>Eritrea</c>
+              <c>15.982</c>
+              <c>38.02</c>
+            </r>
+            <r>
+              <c>Equatorial Guinea</c>
+              <c>1.596</c>
+              <c>10.553</c>
+            </r>
+            <r>
+              <c>El Salvador</c>
+              <c>13.848</c>
+              <c>-89.229</c>
+            </r>
+            <r>
+              <c>Egypt</c>
+              <c>26.16</c>
+              <c>28.742</c>
+            </r>
+            <r>
+              <c>Ecuador</c>
+              <c>-1.151</c>
+              <c>-78.308</c>
+            </r>
+            <r>
+              <c>East Germany (GDR)</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>DR Congo</c>
+              <c>-1.418</c>
+              <c>23.607</c>
+            </r>
+            <r>
+              <c>Dominican Republic</c>
+              <c>19.072</c>
+              <c>-70.988</c>
+            </r>
+            <r>
+              <c>Djibouti</c>
+              <c>11.41</c>
+              <c>42.165</c>
+            </r>
+            <r>
+              <c>Denmark</c>
+              <c>56.113</c>
+              <c>9.096</c>
+            </r>
+            <r>
+              <c>Czechoslovakia</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Czech Republic</c>
+              <c>49.848</c>
+              <c>14.717</c>
+            </r>
+            <r>
+              <c>Cyprus</c>
+              <c>34.894</c>
+              <c>32.928</c>
+            </r>
+            <r>
+              <c>Cuba</c>
+              <c>20.571</c>
+              <c>-76.456</c>
+            </r>
+            <r>
+              <c>Croatia</c>
+              <c>45.754</c>
+              <c>16.385</c>
+            </r>
+            <r>
+              <c>Cote d'Ivoire</c>
+              <c>7.497</c>
+              <c>-5.336</c>
+            </r>
+            <r>
+              <c>Costa Rica</c>
+              <c>10.126</c>
+              <c>-84.075</c>
+            </r>
+            <r>
+              <c>Congo</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Comoros</c>
+              <c>-11.755</c>
+              <c>43.342</c>
+            </r>
+            <r>
+              <c>Colombia</c>
+              <c>3.794</c>
+              <c>-73.606</c>
+            </r>
+            <r>
+              <c>China</c>
+              <c>35.1753</c>
+              <c>99.3877</c>
+            </r>
+            <r>
+              <c>Chile</c>
+              <c>-23.176</c>
+              <c>-69.201</c>
+            </r>
+            <r>
+              <c>Chad</c>
+              <c>15.981</c>
+              <c>18.781</c>
+            </r>
+            <r>
+              <c>Central African Republic</c>
+              <c>7.043</c>
+              <c>21.424</c>
+            </r>
+            <r>
+              <c>Cape Verde</c>
+              <c>15.416</c>
+              <c>-23.36</c>
+            </r>
+            <r>
+              <c>Canada</c>
+              <c>59.2067</c>
+              <c>-111.1937</c>
+            </r>
+            <r>
+              <c>Cameroon</c>
+              <c>4.4</c>
+              <c>12.131</c>
+            </r>
+            <r>
+              <c>Cambodia</c>
+              <c>12.69</c>
+              <c>104.444</c>
+            </r>
+            <r>
+              <c>Burundi</c>
+              <c>-3.333</c>
+              <c>29.749</c>
+            </r>
+            <r>
+              <c>Burkina Faso</c>
+              <c>12.673</c>
+              <c>-1.226</c>
+            </r>
+            <r>
+              <c>Bulgaria</c>
+              <c>42.625</c>
+              <c>24.521</c>
+            </r>
+            <r>
+              <c>Brunei</c>
+              <c>4.452</c>
+              <c>114.557</c>
+            </r>
+            <r>
+              <c>Brazil</c>
+              <c>-11.694</c>
+              <c>-48.978</c>
+            </r>
+            <r>
+              <c>Botswana</c>
+              <c>-22.126</c>
+              <c>23.662</c>
+            </r>
+            <r>
+              <c>Bosnia-Herzegovina</c>
+              <c>44.342</c>
+              <c>17.804</c>
+            </r>
+            <r>
+              <c>Bolivia</c>
+              <c>-16.71</c>
+              <c>-65.183</c>
+            </r>
+            <r>
+              <c>Biafra</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Bhutan</c>
+              <c>27.488</c>
+              <c>90.147</c>
+            </r>
+            <r>
+              <c>Benin</c>
+              <c>10.478</c>
+              <c>2.274</c>
+            </r>
+            <r>
+              <c>Belgium</c>
+              <c>50.773</c>
+              <c>4.809</c>
+            </r>
+            <r>
+              <c>Belarus</c>
+              <c>53.48</c>
+              <c>28.241</c>
+            </r>
+            <r>
+              <c>Barbados</c>
+              <c>13.147</c>
+              <c>-59.557</c>
+            </r>
+            <r>
+              <c>Bangladesh</c>
+              <c>24.379</c>
+              <c>89.804</c>
+            </r>
+            <r>
+              <c>Bahrain</c>
+              <c>26.028</c>
+              <c>50.55</c>
+            </r>
+            <r>
+              <c>Bahamas</c>
+              <c>24.616</c>
+              <c>-77.989</c>
+            </r>
+            <r>
+              <c>Azerbaijan</c>
+              <c>40.46</c>
+              <c>47.883</c>
+            </r>
+            <r>
+              <c>Austria</c>
+              <c>47.65</c>
+              <c>14.705</c>
+            </r>
+            <r>
+              <c>Australia</c>
+              <c>-24.578</c>
+              <c>133.582</c>
+            </r>
+            <r>
+              <c>Aruba</c>
+              <c>12.556</c>
+              <c>-70.024</c>
+            </r>
+            <r>
+              <c>Armenia</c>
+              <c>40.56</c>
+              <c>44.449</c>
+            </r>
+            <r>
+              <c>Argentina</c>
+              <c>-33.166</c>
+              <c>-64.31</c>
+            </r>
+            <r>
+              <c>Angola</c>
+              <c>-12.836</c>
+              <c>17.808</c>
+            </r>
+            <r>
+              <c>Algeria</c>
+              <c>28.6045</c>
+              <c>2.64</c>
+            </r>
+            <r>
+              <c>Albania</c>
+              <c>40.654</c>
+              <c>20.076</c>
+            </r>
+            <r>
+              <c>African Union**</c>
+              <c />
+              <c />
+            </r>
+            <r>
+              <c>Afghanistan</c>
+              <c>34.023</c>
+              <c>65.5267</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1758" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Destination" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Destination" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Right_Destination" selected="False" rename="Right_Destination" />
+                <SelectField field="Right_Latitude (generated)" selected="True" rename="DestLat" />
+                <SelectField field="Right_Longitude (generated)" selected="True" rename="DestLong" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1950" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Source" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Destination" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Right_Destination" selected="False" rename="Right_Destination" />
+                <SelectField field="Right_Latitude (generated)" selected="True" rename="SourceLat" />
+                <SelectField field="Right_Longitude (generated)" selected="True" rename="SourceLong" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings>
+        <Position x="2046" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.Points"><![CDATA[LatitudeA=SourceLat
+LongitudeA=SourceLong
+LatitudeB=DestLat
+LongitudeB=DestLong
+]]></Value>
+          <Value name="Numeric Up Down (23)">100</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="GreatArcs.yxmc" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2166" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">C:\Downloads\Arm Exports Path.csv</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Arm Exports Path.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="222" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Field_1</Field>
+          <RegExExpression value="&lt;option value=&quot;[^&quot;]*&quot;&gt;[^&lt;]*&lt;/option&gt;" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="True" />
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+          </ParseComplex>
+          <Match>
+            <Field>Field_1_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tokenize:
+&lt;option value="[^"]*"&gt;[^&lt;]*...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="318" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Field_1</Field>
+          <RegExExpression value="&lt;option value=&quot;([^&quot;]*)&quot;&gt;([^&lt;]*)&lt;/option&gt;" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Field_1</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="country_code" type="V_String" size="6500" />
+            <Field field="country" type="V_String" size="6500" />
+          </ParseComplex>
+          <Match>
+            <Field>Field_1_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Parse:
+&lt;option value="([^"]*)"&gt;([^...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="414" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>country_code</Field>
+            <Operator>IsNotNull</Operator>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([country_code])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="606" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>Uri</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="Field_1" selected="False" />
+              <Field name="country_code" selected="False" />
+              <Field name="country" selected="False" />
+              <Field name="Uri" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>POST</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues>
+              <Item name="import_or_export" value="export" />
+              <Item name="low_year" value="1950" />
+              <Item name="high_year" value="2015" />
+              <Item name="summarize" value="country" />
+              <Item name="filetype" value="csv" />
+              <Item name="Action" value="Download" />
+            </ComposeNameValues>
+            <ComposeFields orderChanged="False">
+              <Field name="country_code" />
+              <Field name="Field_1" selected="False" />
+              <Field name="country" selected="False" />
+              <Field name="Uri" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+            <ContentType>Urlencoded</ContentType>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="510" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Uri" type="V_WString" size="64" expression="'http://armstrade.sipri.org/armstrade/html/export_values.php'" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Uri='http://armstrade.sipri.org/armstrade/html/export_values....</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="102" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="11" />
+          <Fields>
+            <Field name="Field_1" />
+          </Fields>
+          <Data>
+            <r>
+              <c>&lt;option value=""&gt;All&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="AFG"&gt;Afghanistan&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="AU"&gt;African Union**&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="ALB"&gt;Albania&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="ALG"&gt;Algeria&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="XLA"&gt;Amal (Lebanon)*&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="XSA"&gt;ANC (South Africa)*&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="ANG"&gt;Angola&lt;/option&gt;&lt;option value="XCC"&gt;Anti-Castro rebels (Cuba)*&lt;/option&gt;&lt;option value="ARG"&gt;Argentina&lt;/option&gt;&lt;option value="XGC"&gt;Armas (Guatemala)*&lt;/option&gt;&lt;option value="ARM"&gt;Armenia&lt;/option&gt;&lt;option value="ARU"&gt;Aruba&lt;/option&gt;&lt;option value="AUS"&gt;Australia&lt;/option&gt;&lt;option value="AST"&gt;Austria&lt;/option&gt;&lt;option value="AZB"&gt;Azerbaijan&lt;/option&gt;&lt;option value="BAS"&gt;Bahamas&lt;/option&gt;&lt;option value="BAH"&gt;Bahrain&lt;/option&gt;&lt;option value="BAN"&gt;Bangladesh&lt;/option&gt;&lt;option value="BAR"&gt;Barbados&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="BLR"&gt;Belarus&lt;/option&gt;&lt;option value="BEL"&gt;Belgium&lt;/option&gt;&lt;option value="BLZ"&gt;Belize&lt;/option&gt;&lt;option value="BEN"&gt;Benin&lt;/option&gt;&lt;option value="BHU"&gt;Bhutan&lt;/option&gt;&lt;option value="BIA"&gt;Biafra&lt;/option&gt;&lt;option value="BOL"&gt;Bolivia&lt;/option&gt;&lt;option value="BOS"&gt;Bosnia-Herzegovina&lt;/option&gt;&lt;option value="BOT"&gt;Botswana&lt;/option&gt;&lt;option value="BRA"&gt;Brazil&lt;/option&gt;&lt;option value="BRU"&gt;Brunei&lt;/option&gt;&lt;option value="BUL"&gt;Bulgaria&lt;/option&gt;&lt;option value="BF"&gt;Burkina Faso&lt;/option&gt;&lt;option value="BDI"&gt;Burundi&lt;/option&gt;&lt;option value="CMB"&gt;Cambodia&lt;/option&gt;&lt;option value="CAM"&gt;Cameroon&lt;/option&gt;&lt;option value="CAN"&gt;Canada&lt;/option&gt;&lt;option value="CAP"&gt;Cape Verde&lt;/option&gt;&lt;option value="CAR"&gt;Central African Republic&lt;/option&gt;&lt;option value="CHA"&gt;Chad&lt;/option&gt;&lt;option value="CHE"&gt;Chile&lt;/option&gt;&lt;option value="CHI"&gt;China&lt;/option&gt;&lt;option value="COL"&gt;Colombia&lt;/option&gt;&lt;option value="COM"&gt;Comoros&lt;/option&gt;&lt;option value="CON"&gt;Congo&lt;/option&gt;&lt;option value="XNC"&gt;Contras (Nicaragua)*&lt;/option&gt;&lt;option value="COS"&gt;Costa Rica&lt;/option&gt;&lt;option value="IVO"&gt;Cote d'Ivoire&lt;/option&gt;&lt;option value="CRO"&gt;Croatia&lt;/option&gt;&lt;option value="CUB"&gt;Cuba&lt;/option&gt;&lt;option value="CYP"&gt;Cyprus&lt;/option&gt;&lt;option value="CZE"&gt;Czechoslovakia&lt;/option&gt;&lt;option value="CZR"&gt;Czech Republic&lt;/option&gt;&lt;option value="DEN"&gt;Denmark&lt;/option&gt;&lt;option value="DJI"&gt;Djibouti&lt;/option&gt;&lt;option value="DOM"&gt;Dominican Republic&lt;/option&gt;&lt;option value="DRC"&gt;DR Congo&lt;/option&gt;&lt;option value="GDR"&gt;East Germany (GDR)&lt;/option&gt;&lt;option value="ECU"&gt;Ecuador&lt;/option&gt;&lt;option value="EGY"&gt;Egypt&lt;/option&gt;&lt;option value="XEE"&gt;ELF (Ethiopia)*&lt;/option&gt;&lt;option value="SAL"&gt;El Salvador&lt;/option&gt;&lt;option value="XEP"&gt;EPLF (Ethiopia)*&lt;/option&gt;&lt;option value="EQU"&gt;Equatorial Guinea&lt;/option&gt;&lt;option value="ERI"&gt;Eritrea&lt;/option&gt;&lt;option value="EST"&gt;Estonia&lt;/option&gt;&lt;option value="ETH"&gt;Ethiopia&lt;/option&gt;&lt;option value="XCF"&gt;FAN (Chad)*&lt;/option&gt;&lt;option value="FJI"&gt;Fiji&lt;/option&gt;&lt;option value="FIN"&gt;Finland&lt;/option&gt;&lt;option value="XSF"&gt;FMLN (El Salvador)*&lt;/option&gt;&lt;option value="XAF"&gt;FNLA (Angola)*&lt;/option&gt;&lt;option value="FRA"&gt;France&lt;/option&gt;&lt;option value="XPR"&gt;FRELIMO (Portugal)*&lt;/option&gt;&lt;option value="GAB"&gt;Gabon&lt;/option&gt;&lt;option value="GAM"&gt;Gambia&lt;/option&gt;&lt;option value="GEO"&gt;Georgia&lt;/option&gt;&lt;option value="FRG"&gt;Germany (FRG)&lt;/option&gt;&lt;option value="GHA"&gt;Ghana&lt;/option&gt;&lt;option value="GRE"&gt;Greece&lt;/option&gt;&lt;option value="GND"&gt;Grenada&lt;/option&gt;&lt;option value="GUA"&gt;Guatemala&lt;/option&gt;&lt;option value="GUI"&gt;Guinea&lt;/option&gt;&lt;option value="GBI"&gt;Guinea-Bissau&lt;/option&gt;&lt;option value="XCG"&gt;GUNT (Chad)*&lt;/option&gt;&lt;option value="GUY"&gt;Guyana&lt;/option&gt;&lt;option value="HAI"&gt;Haiti&lt;/option&gt;&lt;option value="XHB"&gt;Haiti rebels*&lt;/option&gt;&lt;option value="XPA"&gt;Hamas (Palestine)*&lt;/option&gt;&lt;option value="XLH"&gt;Hezbollah (Lebanon)*&lt;/option&gt;&lt;option value="HON"&gt;Honduras&lt;/option&gt;&lt;option value="HUN"&gt;Hungary&lt;/option&gt;&lt;option value="ICE"&gt;Iceland&lt;/option&gt;&lt;option value="IND"&gt;India&lt;/option&gt;&lt;option value="INS"&gt;Indonesia&lt;/option&gt;&lt;option value="XIR"&gt;Indonesia rebels*&lt;/option&gt;&lt;option value="IRA"&gt;Iran&lt;/option&gt;&lt;option value="IRQ"&gt;Iraq&lt;/option&gt;&lt;option value="IRE"&gt;Ireland&lt;/option&gt;&lt;option value="ISR"&gt;Israel&lt;/option&gt;&lt;option value="ITA"&gt;Italy&lt;/option&gt;&lt;option value="JAM"&gt;Jamaica&lt;/option&gt;&lt;option value="JAP"&gt;Japan&lt;/option&gt;&lt;option value="JOR"&gt;Jordan&lt;/option&gt;&lt;option value="KAT"&gt;Katanga&lt;/option&gt;&lt;option value="KAZ"&gt;Kazakhstan&lt;/option&gt;&lt;option value="KEN"&gt;Kenya&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="XCR"&gt;Khmer Rouge (Cambodia)*&lt;/option&gt;&lt;option value="KIR"&gt;Kiribati&lt;/option&gt;&lt;option value="KSV"&gt;Kosovo&lt;/option&gt;&lt;option value="KUW"&gt;Kuwait&lt;/option&gt;&lt;option value="KYR"&gt;Kyrgyzstan&lt;/option&gt;&lt;option value="LAO"&gt;Laos&lt;/option&gt;&lt;option value="LAT"&gt;Latvia&lt;/option&gt;&lt;option value="LEB"&gt;Lebanon&lt;/option&gt;&lt;option value="XLP"&gt;Lebanon Palestinian rebels*&lt;/option&gt;&lt;option value="LES"&gt;Lesotho&lt;/option&gt;&lt;option value="XLL"&gt;LF (Lebanon)*&lt;/option&gt;&lt;option value="LIB"&gt;Liberia&lt;/option&gt;&lt;option value="LYA"&gt;Libya&lt;/option&gt;&lt;option value="LIT"&gt;Lithuania&lt;/option&gt;&lt;option value="XUL"&gt;LRA (Uganda)*&lt;/option&gt;&lt;option value="XSL"&gt;LTTE (Sri Lanka)*&lt;/option&gt;&lt;option value="LUX"&gt;Luxembourg&lt;/option&gt;&lt;option value="MAC"&gt;Macedonia (FYROM)&lt;/option&gt;&lt;option value="MAD"&gt;Madagascar&lt;/option&gt;&lt;option value="MWI"&gt;Malawi&lt;/option&gt;&lt;option value="MAL"&gt;Malaysia&lt;/option&gt;&lt;option value="MLV"&gt;Maldives&lt;/option&gt;&lt;option value="MLI"&gt;Mali&lt;/option&gt;&lt;option value="MTA"&gt;Malta&lt;/option&gt;&lt;option value="MAR"&gt;Marshall Islands&lt;/option&gt;&lt;option value="MRA"&gt;Mauritania&lt;/option&gt;&lt;option value="MAU"&gt;Mauritius&lt;/option&gt;&lt;option value="MEX"&gt;Mexico&lt;/option&gt;&lt;option value="MIC"&gt;Micronesia&lt;/option&gt;&lt;option value="XPQ"&gt;MNLF (Philippines)*&lt;/option&gt;&lt;option value="MOL"&gt;Moldova&lt;/option&gt;&lt;option value="MON"&gt;Mongolia&lt;/option&gt;&lt;option value="MTG"&gt;Montenegro&lt;/option&gt;&lt;option value="MOR"&gt;Morocco&lt;/option&gt;&lt;option value="MOZ"&gt;Mozambique&lt;/option&gt;&lt;option value="XPM"&gt;MPLA (Portugal)*&lt;/option&gt;&lt;option value="XMX"&gt;MTA (Myanmar)*&lt;/option&gt;&lt;option value="XAM"&gt;Mujahedin (Afghanistan)*&lt;/option&gt;&lt;option value="MUL"&gt;(multiple sellers)&lt;/option&gt;&lt;option value="MYA"&gt;Myanmar&lt;/option&gt;&lt;option value="NAM"&gt;Namibia&lt;/option&gt;&lt;option value="NAT"&gt;NATO**&lt;/option&gt;&lt;option value="NEP"&gt;Nepal&lt;/option&gt;&lt;option value="NET"&gt;Netherlands&lt;/option&gt;&lt;option value="NZ"&gt;New Zealand&lt;/option&gt;&lt;option value="NIC"&gt;Nicaragua&lt;/option&gt;&lt;option value="NIR"&gt;Niger&lt;/option&gt;&lt;option value="NIG"&gt;Nigeria&lt;/option&gt;&lt;option value="XMN"&gt;NLA (Macedonia)*&lt;/option&gt;&lt;option value="XAN"&gt;Northern Alliance (Afghanistan)*&lt;/option&gt;&lt;option value="NCY"&gt;Northern Cyprus&lt;/option&gt;&lt;option value="KON"&gt;North Korea&lt;/option&gt;&lt;option value="YEN"&gt;North Yemen&lt;/option&gt;&lt;option value="NOR"&gt;Norway&lt;/option&gt;&lt;option value="XLB"&gt;NTC (Libya)*&lt;/option&gt;&lt;option value="OMA"&gt;Oman&lt;/option&gt;&lt;option value="XPP"&gt;PAIGC (Portugal)*&lt;/option&gt;&lt;option value="PAK"&gt;Pakistan&lt;/option&gt;&lt;option value="PAL"&gt;Palau&lt;/option&gt;&lt;option value="PA"&gt;Palestine&lt;/option&gt;&lt;option value="PAN"&gt;Panama&lt;/option&gt;&lt;option value="PAP"&gt;Papua New Guinea&lt;/option&gt;&lt;option value="PAR"&gt;Paraguay&lt;/option&gt;&lt;option value="XLO"&gt;Pathet Lao (Laos)*&lt;/option&gt;&lt;option value="PER"&gt;Peru&lt;/option&gt;&lt;option value="PHI"&gt;Philippines&lt;/option&gt;&lt;option value="XID"&gt;PIJ (Israel/Palestine)*&lt;/option&gt;&lt;option value="XTP"&gt;PKK (Turkey)*&lt;/option&gt;&lt;option value="XIP"&gt;PLO (Israel)*&lt;/option&gt;&lt;option value="POL"&gt;Poland&lt;/option&gt;&lt;option value="POR"&gt;Portugal&lt;/option&gt;&lt;option value="XPC"&gt;PRC (Israel/Palestine)*&lt;/option&gt;&lt;option value="XUI"&gt;Provisional IRA (UK)*&lt;/option&gt;&lt;option value="QAT"&gt;Qatar&lt;/option&gt;&lt;option value="RSS"&gt;Regional Security System**&lt;/option&gt;&lt;option value="ROM"&gt;Romania&lt;/option&gt;</c>
+            </r>
+            <r>
+              <c>&lt;option value="XRR"&gt;RPF (Rwanda)*&lt;/option&gt;&lt;option value="XSR"&gt;RUF (Sierra Leone)*&lt;/option&gt;&lt;option value="RUS"&gt;Russia&lt;/option&gt;&lt;option value="RWA"&gt;Rwanda&lt;/option&gt;&lt;option value="SKN"&gt;Saint Kitts and Nevis&lt;/option&gt;&lt;option value="SVG"&gt;Saint Vincent&lt;/option&gt;&lt;option value="SAM"&gt;Samoa&lt;/option&gt;&lt;option value="SAU"&gt;Saudi Arabia&lt;/option&gt;&lt;option value="SEN"&gt;Senegal&lt;/option&gt;&lt;option value="SER"&gt;Serbia&lt;/option&gt;&lt;option value="SEY"&gt;Seychelles&lt;/option&gt;&lt;option value="SIE"&gt;Sierra Leone&lt;/option&gt;&lt;option value="SIN"&gt;Singapore&lt;/option&gt;&lt;option value="XLS"&gt;SLA (Lebanon)*&lt;/option&gt;&lt;option value="SLK"&gt;Slovakia&lt;/option&gt;&lt;option value="SLO"&gt;Slovenia&lt;/option&gt;&lt;option value="XSY"&gt;SNA (Somalia)*&lt;/option&gt;&lt;option value="SOL"&gt;Solomon Islands&lt;/option&gt;&lt;option value="SOM"&gt;Somalia&lt;/option&gt;&lt;option value="SA"&gt;South Africa&lt;/option&gt;&lt;option value="XYS"&gt;Southern rebels (Yemen)*&lt;/option&gt;&lt;option value="KOS"&gt;South Korea&lt;/option&gt;&lt;option value="SSD"&gt;South Sudan&lt;/option&gt;&lt;option value="VNS"&gt;South Vietnam&lt;/option&gt;&lt;option value="YES"&gt;South Yemen&lt;/option&gt;&lt;option value="USR"&gt;Soviet Union&lt;/option&gt;&lt;option value="SPA"&gt;Spain&lt;/option&gt;&lt;option value="XSP"&gt;SPLA (Sudan)*&lt;/option&gt;&lt;option value="SRI"&gt;Sri Lanka&lt;/option&gt;&lt;option value="SUD"&gt;Sudan&lt;/option&gt;&lt;option value="SUR"&gt;Suriname&lt;/option&gt;&lt;option value="SWA"&gt;Swaziland&lt;/option&gt;&lt;option value="SWE"&gt;Sweden&lt;/option&gt;&lt;option value="SWI"&gt;Switzerland&lt;/option&gt;&lt;option value="SYR"&gt;Syria&lt;/option&gt;&lt;option value="XSX"&gt;Syria rebels*&lt;/option&gt;&lt;option value="TAI"&gt;Taiwan (ROC)&lt;/option&gt;&lt;option value="TAJ"&gt;Tajikistan&lt;/option&gt;&lt;option value="TAN"&gt;Tanzania&lt;/option&gt;&lt;option value="THA"&gt;Thailand&lt;/option&gt;&lt;option value="ET"&gt;Timor-Leste&lt;/option&gt;&lt;option value="TOG"&gt;Togo&lt;/option&gt;&lt;option value="TON"&gt;Tonga&lt;/option&gt;&lt;option value="TRI"&gt;Trinidad and Tobago&lt;/option&gt;&lt;option value="TUN"&gt;Tunisia&lt;/option&gt;&lt;option value="TUR"&gt;Turkey&lt;/option&gt;&lt;option value="TRK"&gt;Turkmenistan&lt;/option&gt;&lt;option value="TUV"&gt;Tuvalu&lt;/option&gt;&lt;option value="UAE"&gt;UAE&lt;/option&gt;&lt;option value="UGA"&gt;Uganda&lt;/option&gt;&lt;option value="XSI"&gt;UIC (Somalia)*&lt;/option&gt;&lt;option value="UKR"&gt;Ukraine&lt;/option&gt;&lt;option value="XUR"&gt;Ukraine Rebels*&lt;/option&gt;&lt;option value="XAU"&gt;UNITA (Angola)*&lt;/option&gt;&lt;option value="UK"&gt;United Kingdom&lt;/option&gt;&lt;option value="UNO"&gt;United Nations**&lt;/option&gt;&lt;option value="USA"&gt;United States&lt;/option&gt;&lt;option value="XMU"&gt;United Wa State (Myanmar)*&lt;/option&gt;&lt;option value="XXX"&gt;Unknown country&lt;/option&gt;&lt;option value="XXU"&gt;Unknown rebel group*&lt;/option&gt;&lt;option value="URU"&gt;Uruguay&lt;/option&gt;&lt;option value="UZB"&gt;Uzbekistan&lt;/option&gt;&lt;option value="VAN"&gt;Vanuatu&lt;/option&gt;&lt;option value="VEN"&gt;Venezuela&lt;/option&gt;&lt;option value="XVC"&gt;Viet Cong (South Vietnam)*&lt;/option&gt;&lt;option value="XFV"&gt;Viet Minh (France)*&lt;/option&gt;&lt;option value="VN"&gt;Viet Nam&lt;/option&gt;&lt;option value="SAH"&gt;Western Sahara&lt;/option&gt;&lt;option value="YEM"&gt;Yemen&lt;/option&gt;&lt;option value="YUG"&gt;Yugoslavia&lt;/option&gt;&lt;option value="ZAM"&gt;Zambia&lt;/option&gt;&lt;option value="XZZ"&gt;ZAPU (Zimbabwe)*&lt;/option&gt;&lt;option value="ZIM"&gt;Zimbabwe&lt;/option&gt;&lt;/select&gt;</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="True" />
+      <Destination ToolID="11" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="False" />
+      <Destination ToolID="11" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Join" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="True" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="True" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="24" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="25" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Join" />
+      <Destination ToolID="25" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Join" />
+      <Destination ToolID="26" Connection="Points" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output26" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="True" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Arms Exports</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
