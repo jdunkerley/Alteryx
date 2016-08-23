@@ -255,16 +255,17 @@ Chef=Trim(Chef)</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <URLField>URL</URLField>
+          <URLField>ChefUri</URLField>
           <OutputMode>String</OutputMode>
           <CodePage>65001</CodePage>
           <EncodeURLs value="True" />
           <Headers>
             <NameValues />
             <Fields orderChanged="False">
-              <Field name="Chef" selected="False" />
+              <Field name="ChefName" selected="False" />
+              <Field name="ChefUri" selected="False" />
+              <Field name="ChefImageSrc" selected="False" />
               <Field name="URL" selected="False" />
-              <Field name="ImageSrc" selected="False" />
               <Field name="*Unknown" selected="False" />
             </Fields>
           </Headers>
@@ -273,9 +274,10 @@ Chef=Trim(Chef)</DefaultAnnotationText>
             <QueryStringBodyMode>Compose</QueryStringBodyMode>
             <ComposeNameValues />
             <ComposeFields orderChanged="False">
-              <Field name="Chef" selected="False" />
+              <Field name="ChefName" selected="False" />
+              <Field name="ChefUri" selected="False" />
+              <Field name="ChefImageSrc" selected="False" />
               <Field name="URL" selected="False" />
-              <Field name="ImageSrc" selected="False" />
               <Field name="*Unknown" selected="False" />
             </ComposeFields>
           </Payload>
@@ -294,15 +296,15 @@ Chef=Trim(Chef)</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="270" y="186" />
+        <Position x="246" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
           <SelectFields>
-            <SelectField field="Chef" selected="True" rename="ChefName" />
-            <SelectField field="URL" selected="True" rename="ChefUri" />
-            <SelectField field="ImageSrc" selected="True" rename="ChefImageSrc" />
+            <SelectField field="ChefName" selected="True" />
+            <SelectField field="ChefUri" selected="True" />
+            <SelectField field="ChefImageSrc" selected="True" />
             <SelectField field="DownloadData" selected="True" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
@@ -317,7 +319,7 @@ Chef=Trim(Chef)</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="378" y="186" />
+        <Position x="450" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -350,7 +352,7 @@ Chef=Trim(Chef)</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="474" y="186" />
+        <Position x="546" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -389,7 +391,7 @@ Chef=Trim(Chef)</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="762" y="186" />
+        <Position x="834" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -418,7 +420,7 @@ Chef=Trim(Chef)</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="954" y="186" />
+        <Position x="1026" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -509,7 +511,7 @@ Title=Trim(Title)</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="570" y="186" />
+        <Position x="642" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -528,7 +530,7 @@ Title=Trim(Title)</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="666" y="186" />
+        <Position x="738" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -548,7 +550,7 @@ Title=Trim(Title)</DefaultAnnotationText>
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="834" y="186" />
+        <Position x="930" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -756,6 +758,51 @@ Title - Ascending</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="846" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Chef" selected="True" rename="ChefName" />
+            <SelectField field="URL" selected="True" rename="ChefUri" />
+            <SelectField field="ImageSrc" selected="True" rename="ChefImageSrc" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="342" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_18932_97c5fa6e526041a3bd19d057c028e924_\Engine_2828_caba17e90cfb4bb8a9a7b77556ccb0df_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -784,7 +831,7 @@ Title - Ascending</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
-      <Destination ToolID="10" Connection="Input" />
+      <Destination ToolID="29" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
@@ -801,6 +848,10 @@ Title - Ascending</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="11" Connection="Output" />
       <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="12" Connection="Output" />
@@ -861,6 +912,10 @@ Title - Ascending</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="27" Connection="Join" />
       <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
