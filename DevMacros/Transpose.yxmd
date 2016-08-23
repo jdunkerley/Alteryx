@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.0">
+  <Nodes>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Downloads\TestPrices.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TestPrices.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="Price" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="Date" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="PostCode" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="PropertyType" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="IsNewBuild" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="Freehold" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="PAON" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="SAON" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="Street" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="Locality" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="City" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="District" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="County" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="PPType" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="RecordStatus" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="210" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>RecordID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="306" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="RecordID" />
+          </KeyFields>
+          <DataFields>
+            <Field field="RecordID" selected="False" />
+            <Field field="UniqueID" selected="True" />
+            <Field field="Price" selected="True" />
+            <Field field="Date" selected="True" />
+            <Field field="PostCode" selected="True" />
+            <Field field="PropertyType" selected="True" />
+            <Field field="IsNewBuild" selected="True" />
+            <Field field="Freehold" selected="True" />
+            <Field field="PAON" selected="True" />
+            <Field field="SAON" selected="True" />
+            <Field field="Street" selected="True" />
+            <Field field="Locality" selected="True" />
+            <Field field="City" selected="True" />
+            <Field field="District" selected="True" />
+            <Field field="County" selected="True" />
+            <Field field="PPType" selected="True" />
+            <Field field="RecordStatus" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="390" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>RecordID</UpdateField_Name>
+          <CreateField_Name>FieldID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:FieldID]+1</Expression>
+          <GroupByFields>
+            <Field field="RecordID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Row-1:FieldID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="474" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="FieldID" />
+          </GroupFields>
+          <HeaderField field="RecordID" />
+          <DataField field="Value" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: [Row-1:FieldID]+1" name="FieldID" source="CrossTab:Group:First:" type="Int32" />
+            <Field name="1" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="2" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="3" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="4" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="5" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="6" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="7" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="8" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="9" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="10" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="11" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="12" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="13" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="14" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="15" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="16" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="17" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="18" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="19" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="20" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="21" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="22" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="23" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="24" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="25" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="26" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="27" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="28" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="29" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="30" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="31" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="32" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="33" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="34" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="35" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="36" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="37" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="38" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="39" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="40" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="41" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="42" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="43" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="44" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="45" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="46" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="47" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="48" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+            <Field name="49" size="254" source="File: C:\Downloads\TestPrices.csv" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FieldID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FieldInfo.FieldInfo">
+        <Position x="210" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFieldInfo" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="594" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="FieldID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="FieldID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Right_Name" selected="True" rename="Field" />
+                <SelectField field="Left_FieldID" selected="False" />
+                <SelectField field="Left_1" selected="True" />
+                <SelectField field="Left_2" selected="True" />
+                <SelectField field="Left_3" selected="True" />
+                <SelectField field="Left_4" selected="True" />
+                <SelectField field="Left_5" selected="True" />
+                <SelectField field="Left_6" selected="True" />
+                <SelectField field="Left_7" selected="True" />
+                <SelectField field="Left_8" selected="True" />
+                <SelectField field="Left_9" selected="True" />
+                <SelectField field="Left_10" selected="True" />
+                <SelectField field="Left_11" selected="True" />
+                <SelectField field="Left_12" selected="True" />
+                <SelectField field="Left_13" selected="True" />
+                <SelectField field="Left_14" selected="True" />
+                <SelectField field="Left_15" selected="True" />
+                <SelectField field="Left_16" selected="True" />
+                <SelectField field="Left_17" selected="True" />
+                <SelectField field="Left_18" selected="True" />
+                <SelectField field="Left_19" selected="True" />
+                <SelectField field="Left_20" selected="True" />
+                <SelectField field="Left_21" selected="True" />
+                <SelectField field="Left_22" selected="True" />
+                <SelectField field="Right_FieldID" selected="False" rename="Right_FieldID" />
+                <SelectField field="Right_Type" selected="False" />
+                <SelectField field="Right_Size" selected="False" />
+                <SelectField field="Right_Scale" selected="False" />
+                <SelectField field="Right_Source" selected="False" />
+                <SelectField field="Right_Description" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="306" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>FieldID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="702" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_18980_6bab3ef93ab148a694ead02325d66dfe_\Engine_7936_ccaa2d1dbf5144b6afa4352892fa8b77_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="12" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="12" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Join" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Transpose</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

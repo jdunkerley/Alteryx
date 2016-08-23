@@ -1,0 +1,572 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="174" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>RecordID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="258" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Test</Field>
+          <RegExExpression value="." />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="True" />
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+          </ParseComplex>
+          <Match>
+            <Field>Test_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tokenize:
+.</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="354" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Code" type="Int64" size="8" expression="CharToInt(Test)" />
+            <FormulaField field="Utf8" type="V_WString" size="64" expression="IF Code &lt; 128 THEN&#xA;    PadLeft(IntToBin(Code), 8, '0')&#xA;ELSEIF Code &lt; 2048 THEN&#xA;    '110' + LEFT(PadLeft(IntToBin(Code), 11, '0'), 5) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 65536 THEN&#xA;    '1110' + LEFT(PadLeft(IntToBin(Code), 16, '0'), 4) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 16, '0'), 4, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 2097152 THEN&#xA;    '11110' + LEFT(PadLeft(IntToBin(Code), 21, '0'), 3) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 3, 6) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 9, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSE&#xA;    NULL()&#xA;ENDIF    &#xA;    &#xA;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Code=CharToInt(Test)
+Utf8=IF Code &lt; 128 THEN
+    PadLeft(IntToBin(Code), 8, '0')
+E...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+            <Field name="Code" source="Formula: CharToInt(Test)" type="Int64" />
+            <Field name="Utf8" size="64" source="Formula: IF Code &lt; 128 THEN&#xA;    PadLeft(IntToBin(Code), 8, '0')&#xA;ELSEIF Code &lt; 2048 THEN&#xA;    '110' + LEFT(PadLeft(IntToBin(Code), 11, '0'), 5) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 65536 THEN&#xA;    '1110' + LEFT(PadLeft(IntToBin(Code), 16, '0'), 4) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 16, '0'), 4, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 2097152 THEN&#xA;    '11110' + LEFT(PadLeft(IntToBin(Code), 21, '0'), 3) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 3, 6) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 9, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSE&#xA;    NULL()&#xA;ENDIF    &#xA;    &#xA;" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input15</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="4" />
+              <Fields>
+                <Field name="Test" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>Hello World</c>
+                </r>
+                <r>
+                  <c>€$£</c>
+                </r>
+                <r>
+                  <c>αβγδ</c>
+                </r>
+                <r>
+                  <c>︾</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (1)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1062" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_12856_543dba0dcedb4d15812d62b741ceb22e_\Engine_17136_d21e53f352464937a26591b46f45f032_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="558" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Utf8</Field>
+          <RegExExpression value="\d{8}" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="True" />
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+          </ParseComplex>
+          <Match>
+            <Field>Utf8_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tokenize:
+\d{8}</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+            <Field name="Code" source="Formula: CharToInt(Test)" type="Int64" />
+            <Field name="Utf8" size="64" source="Formula: IF Code &lt; 128 THEN&#xA;    PadLeft(IntToBin(Code), 8, '0')&#xA;ELSEIF Code &lt; 2048 THEN&#xA;    '110' + LEFT(PadLeft(IntToBin(Code), 11, '0'), 5) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 65536 THEN&#xA;    '1110' + LEFT(PadLeft(IntToBin(Code), 16, '0'), 4) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 16, '0'), 4, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 2097152 THEN&#xA;    '11110' + LEFT(PadLeft(IntToBin(Code), 21, '0'), 3) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 3, 6) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 9, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSE&#xA;    NULL()&#xA;ENDIF    &#xA;    &#xA;" type="V_WString" />
+            <Field description="Formula: [Row-1:CharID]+1" name="CharID" source="Formula: [Row-1:CharID]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="450" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>RecordID</UpdateField_Name>
+          <CreateField_Name>CharID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:CharID]+1</Expression>
+          <GroupByFields>
+            <Field field="RecordID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Row-1:CharID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+            <Field name="Code" source="Formula: CharToInt(Test)" type="Int64" />
+            <Field name="Utf8" size="64" source="Formula: IF Code &lt; 128 THEN&#xA;    PadLeft(IntToBin(Code), 8, '0')&#xA;ELSEIF Code &lt; 2048 THEN&#xA;    '110' + LEFT(PadLeft(IntToBin(Code), 11, '0'), 5) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 65536 THEN&#xA;    '1110' + LEFT(PadLeft(IntToBin(Code), 16, '0'), 4) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 16, '0'), 4, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 2097152 THEN&#xA;    '11110' + LEFT(PadLeft(IntToBin(Code), 21, '0'), 3) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 3, 6) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 9, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSE&#xA;    NULL()&#xA;ENDIF    &#xA;    &#xA;" type="V_WString" />
+            <Field description="Formula: [Row-1:CharID]+1" name="CharID" source="Formula: [Row-1:CharID]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="642" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Utf8Hex" type="V_WString" size="2" expression="PadLeft(IntToHex(BinToInt([Utf8])), 2, '0')" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Utf8Hex=PadLeft(IntToHex(BinToInt([Utf8])), 2, '0')</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Test" size="11" source="TextInput:" type="V_WString" />
+            <Field name="Code" source="Formula: CharToInt(Test)" type="Int64" />
+            <Field name="Utf8" size="64" source="Formula: IF Code &lt; 128 THEN&#xA;    PadLeft(IntToBin(Code), 8, '0')&#xA;ELSEIF Code &lt; 2048 THEN&#xA;    '110' + LEFT(PadLeft(IntToBin(Code), 11, '0'), 5) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 65536 THEN&#xA;    '1110' + LEFT(PadLeft(IntToBin(Code), 16, '0'), 4) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 16, '0'), 4, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSEIF Code &lt; 2097152 THEN&#xA;    '11110' + LEFT(PadLeft(IntToBin(Code), 21, '0'), 3) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 3, 6) +&#xA;    '10' + Substring(PadLeft(IntToBin(Code), 21, '0'), 9, 6) +&#xA;    '10' + RIGHT(IntToBin(Code), 6)&#xA;ELSE&#xA;    NULL()&#xA;ENDIF    &#xA;    &#xA;" type="V_WString" />
+            <Field description="Formula: [Row-1:CharID]+1" name="CharID" source="Formula: [Row-1:CharID]+1" type="Int32" />
+            <Field name="Utf8Hex" size="2" source="Formula: PadLeft(IntToHex(BinToInt([Utf8])), 2, '0')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="750" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="RecordID" action="GroupBy" rename="RecordID" />
+            <SummarizeField field="CharID" action="GroupBy" rename="CharID" />
+            <SummarizeField field="Test" action="GroupBy" rename="Test" />
+            <SummarizeField field="Utf8" action="Concat" rename="Utf8">
+              <Concat_Start />
+              <Separator />
+              <Concat_End />
+            </SummarizeField>
+            <SummarizeField field="Utf8Hex" action="Concat" rename="Utf8Hex">
+              <Concat_Start />
+              <Separator />
+              <Concat_End />
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field description="Formula: [Row-1:CharID]+1" name="CharID" source="Summarize: GroupBy - CharID" type="Int32" />
+            <Field name="Test" size="11" source="Summarize: GroupBy - Test" type="V_WString" />
+            <Field name="Utf8" size="1073741823" source="Summarize: Concat - Utf8" type="V_WString" />
+            <Field name="Utf8Hex" size="1073741823" source="Summarize: Concat - Utf8Hex" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+            <Field field="CharID" order="Asc" />
+            <Field field="Test" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="846" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="RecordID" action="GroupBy" rename="RecordID" />
+            <SummarizeField field="Test" action="Concat" rename="Test">
+              <Concat_Start />
+              <Separator />
+              <Concat_End />
+            </SummarizeField>
+            <SummarizeField field="Utf8" action="Concat" rename="Utf8">
+              <Concat_Start />
+              <Separator />
+              <Concat_End />
+            </SummarizeField>
+            <SummarizeField field="Utf8Hex" action="Concat" rename="Utf8Hex">
+              <Concat_Start />
+              <Separator />
+              <Concat_End />
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field name="Test" size="1073741823" source="Summarize: Concat - Test" type="V_WString" />
+            <Field name="Utf8" size="1073741823" source="Summarize: Concat - Utf8" type="V_WString" />
+            <Field name="Utf8Hex" size="1073741823" source="Summarize: Concat - Utf8Hex" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="942" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Test" size="1073741823" source="Summarize: Concat - Test" type="V_WString" />
+            <Field name="Utf8" size="1073741823" source="Summarize: Concat - Utf8" type="V_WString" />
+            <Field name="Utf8Hex" size="1073741823" source="Summarize: Concat - Utf8Hex" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1062" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output16</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (15)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (16)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>UTF8 Encode</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (14)</Name>
+          <ToolId value="14" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (15)</Description>
+              <Name>Macro Input (15)</Name>
+              <ToolId value="15" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (16)</Description>
+              <Name>Macro Output (16)</Name>
+              <ToolId value="16" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="5" Selected="False" />
+        <Tool ToolId="15" Selected="True" />
+        <Tool ToolId="16" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

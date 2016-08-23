@@ -1,0 +1,4172 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="798" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="342" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Group</UpdateField_Name>
+          <CreateField_Name>Count</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IIF(!IsNull(Value),1,0)+[Row-1:Count]</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Count</AnnotationText>
+          <DefaultAnnotationText>IIF(!IsNull(Value),1,0)+[Row-1:Count]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="_RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="462" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Group</UpdateField_Name>
+          <CreateField_Name>Sum</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IIF(!IsNull(Value),Value,0)+[Row-1:SUm]</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Sum</AnnotationText>
+          <DefaultAnnotationText>IIF(!IsNull(Value),Value,0)+[Row-1:SUm]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="_RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="558" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Group</UpdateField_Name>
+          <CreateField_Name>SumSq</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>SumSq</AnnotationText>
+          <DefaultAnnotationText>IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="_RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="30" y="570" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="WindowSize" />
+          </Fields>
+          <Data>
+            <r>
+              <c>100</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Window Size</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="846" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="StartRecordID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="RecordID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Left_StartRecordID" selected="False" />
+                <SelectField field="Right__RecordID" selected="True" rename="Right__RecordID" />
+                <SelectField field="Right_Value" selected="False" rename="Right_Value" />
+                <SelectField field="Right_RecordID" selected="True" rename="StartRecordID" />
+                <SelectField field="Right_Count" selected="True" rename="StartCount" />
+                <SelectField field="Right_Sum" selected="True" rename="StartSum" />
+                <SelectField field="Right_SumSq" selected="True" rename="StartSumSq" />
+                <SelectField field="Right_WindowSize" selected="False" rename="Right_WindowSize" />
+                <SelectField field="Right_StartRecordID" selected="False" rename="Right_StartRecordID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="StartRecordID" source="Formula: Max(0,[RecordID]-[WindowSize])" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="StartRecordID" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="Right__RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="StartRecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="StartCount" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="StartSum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="StartSumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="RecordID" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="654" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="750" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="StartRecordID" type="Int64" size="8" expression="Max(0,[RecordID]-[WindowSize])" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>StartRecordID</AnnotationText>
+          <DefaultAnnotationText>StartRecordID=Max(0,[RecordID]-[WindowSize])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="StartRecordID" source="Formula: Max(0,[RecordID]-[WindowSize])" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="234" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Group</UpdateField_Name>
+          <CreateField_Name>RecordID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>254</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>1+[Row-1:RecordID]</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordID</AnnotationText>
+          <DefaultAnnotationText>1+[Row-1:RecordID]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="_RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1122" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="WindowCount" type="Int64" size="8" expression="[Count]-IIF(ISNULL([StartCount]),0,[StartCount])" />
+            <FormulaField field="WindowSum" type="Double" size="8" expression="[Sum]-IIF(ISNULL([StartSum]),0,[StartSum])" />
+            <FormulaField field="WindowAvg" type="Double" size="8" expression="IIF(WindowCount=0,NULL(),WindowSum/WindowCount)" />
+            <FormulaField field="WindowStDev" type="Double" size="8" expression="Sqrt((([SumSq]-IIF(ISNULL([StartSumSq]),0,[StartSumSq]))/WindowCount - WindowAvg * WindowAvg))" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Window Values</AnnotationText>
+          <DefaultAnnotationText>WindowCount=[Count]-IIF(ISNULL([StartCount]),0,[StartCount])
+WindowSum=[Sum]-IIF(ISNULL([StartSum]),0,[StartSum])
+WindowAvg=IIF(WindowCount=0,NULL(),WindowSum/WindowCount)
+...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="StartRecordID" source="Formula: (Multiple Sources)" type="Int64" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="StartCount" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="StartSum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="StartSumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowCount" source="Formula: [Count]-IIF(ISNULL([StartCount]),0,[StartCount])" type="Int64" />
+            <Field name="WindowSum" source="Formula: [Sum]-IIF(ISNULL([StartSum]),0,[StartSum])" type="Double" />
+            <Field name="WindowAvg" source="Formula: IIF(WindowCount=0,NULL(),WindowSum/WindowCount)" type="Double" />
+            <Field name="WindowStDev" source="Formula: Sqrt((([SumSq]-IIF(ISNULL([StartSumSq]),0,[StartSumSq]))/WindowCount - WindowAvg * WindowAvg))" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1290" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="_RecordID" selected="False" />
+            <SelectField field="Sum" selected="True" rename="RunningSum" />
+            <SelectField field="SumSq" selected="True" rename="RunningSumSq" />
+            <SelectField field="WindowSize" selected="False" />
+            <SelectField field="StartRecordID" selected="False" />
+            <SelectField field="StartCount" selected="False" />
+            <SelectField field="StartSum" selected="False" />
+            <SelectField field="StartSumSq" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="RunningSum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="RunningSumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowCount" source="Formula: [Count]-IIF(ISNULL([StartCount]),0,[StartCount])" type="Int64" />
+            <Field name="WindowSum" source="Formula: [Sum]-IIF(ISNULL([StartSum]),0,[StartSum])" type="Double" />
+            <Field name="WindowAvg" source="Formula: IIF(WindowCount=0,NULL(),WindowSum/WindowCount)" type="Double" />
+            <Field name="WindowStDev" source="Formula: Sqrt((([SumSq]-IIF(ISNULL([StartSumSq]),0,[StartSumSq]))/WindowCount - WindowAvg * WindowAvg))" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="30" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Data</Name>
+          <Abbrev />
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1000" />
+              <Fields>
+                <Field name="Value" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>20.0</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>45</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>15</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>78</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>78</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>35</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>21</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>35</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>42</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>76</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>78</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>15</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>21</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>35</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>42</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>76</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>35</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>76</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>15</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>2</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>17</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>45</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>21</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>15</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>31</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>44</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>42</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>78</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>15</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>73</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>96</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>6</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>87</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>35</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>76</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>60</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>50</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>30</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>38</c>
+                </r>
+                <r>
+                  <c>76</c>
+                </r>
+                <r>
+                  <c>74</c>
+                </r>
+                <r>
+                  <c>64</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>56</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>45</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>26</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>3</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>88</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>7</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>85</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>22</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>100</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>28</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>76</c>
+                </r>
+                <r>
+                  <c>36</c>
+                </r>
+                <r>
+                  <c>42</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>99</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>25</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>48</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>71</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>59</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>18</c>
+                </r>
+                <r>
+                  <c>14</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>95</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>78</c>
+                </r>
+                <r>
+                  <c>67</c>
+                </r>
+                <r>
+                  <c>0</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>23</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>43</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>63</c>
+                </r>
+                <r>
+                  <c>47</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>86</c>
+                </r>
+                <r>
+                  <c>20</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>45</c>
+                </r>
+                <r>
+                  <c>32</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>11</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>94</c>
+                </r>
+                <r>
+                  <c>80</c>
+                </r>
+                <r>
+                  <c>77</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>58</c>
+                </r>
+                <r>
+                  <c>66</c>
+                </r>
+                <r>
+                  <c>61</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>90</c>
+                </r>
+                <r>
+                  <c>54</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>34</c>
+                </r>
+                <r>
+                  <c>10</c>
+                </r>
+                <r>
+                  <c>33</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>55</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>98</c>
+                </r>
+                <r>
+                  <c>49</c>
+                </r>
+                <r>
+                  <c>19</c>
+                </r>
+                <r>
+                  <c>92</c>
+                </r>
+                <r>
+                  <c>41</c>
+                </r>
+                <r>
+                  <c>83</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>89</c>
+                </r>
+                <r>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>45</c>
+                </r>
+                <r>
+                  <c>45</c>
+                </r>
+                <r>
+                  <c>68</c>
+                </r>
+                <r>
+                  <c>24</c>
+                </r>
+                <r>
+                  <c>91</c>
+                </r>
+                <r>
+                  <c>37</c>
+                </r>
+                <r>
+                  <c>69</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>46</c>
+                </r>
+                <r>
+                  <c>29</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>53</c>
+                </r>
+                <r>
+                  <c>62</c>
+                </r>
+                <r>
+                  <c>65</c>
+                </r>
+                <r>
+                  <c>12</c>
+                </r>
+                <r>
+                  <c>8</c>
+                </r>
+                <r>
+                  <c>39</c>
+                </r>
+                <r>
+                  <c>13</c>
+                </r>
+                <r>
+                  <c>27</c>
+                </r>
+                <r>
+                  <c>40</c>
+                </r>
+                <r>
+                  <c>70</c>
+                </r>
+                <r>
+                  <c>79</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>57</c>
+                </r>
+                <r>
+                  <c>81</c>
+                </r>
+                <r>
+                  <c>35</c>
+                </r>
+                <r>
+                  <c>93</c>
+                </r>
+                <r>
+                  <c>51</c>
+                </r>
+                <r>
+                  <c>75</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>84</c>
+                </r>
+                <r>
+                  <c>97</c>
+                </r>
+                <r>
+                  <c>82</c>
+                </r>
+                <r>
+                  <c>52</c>
+                </r>
+                <r>
+                  <c>72</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (2)</Name>
+          <AnnotationText>Raw Data</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Value" source="TextInput:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1254" y="162" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1398" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Result</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
+        <Position x="42" y="6" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1086" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="138" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="234" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="342" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="438" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicSelect.DynamicSelect">
+        <Position x="1026" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Formula</Mode>
+          <Expression>Left([Name],6)!='Right_'</Expression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="StartRecordID" source="Formula: (Multiple Sources)" type="Int64" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="StartCount" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="StartSum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="StartSumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicSelect" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="714" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="126" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>_RecordID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="_RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="1218" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="_RecordID" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>_RecordID - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="StartRecordID" source="Formula: (Multiple Sources)" type="Int64" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="StartCount" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="StartSum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="StartSumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowCount" source="Formula: [Count]-IIF(ISNULL([StartCount]),0,[StartCount])" type="Int64" />
+            <Field name="WindowSum" source="Formula: [Sum]-IIF(ISNULL([StartSum]),0,[StartSum])" type="Double" />
+            <Field name="WindowAvg" source="Formula: IIF(WindowCount=0,NULL(),WindowSum/WindowCount)" type="Double" />
+            <Field name="WindowStDev" source="Formula: Sqrt((([SumSq]-IIF(ISNULL([StartSumSq]),0,[StartSumSq]))/WindowCount - WindowAvg * WindowAvg))" type="Double" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_RecordID" order="Ascending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+        <Position x="30" y="366" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="18" y="486" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="750" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Test</Name>
+          <Abbrev>T</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="954" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Value" source="TextInput:" type="Double" />
+            <Field description="Formula: 1+[Row-1:RecordID]" name="RecordID" source="Formula: 1+[Row-1:RecordID]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="Count" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="Sum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="SumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+            <Field name="WindowSize" source="TextInput:" type="Byte" />
+            <Field name="Right__RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="StartRecordID" source="Formula: (Multiple Sources)" type="Int64" />
+            <Field description="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" name="StartCount" source="Formula: IIF(!IsNull(Value),1,0)+[Row-1:Count]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" name="StartSum" source="Formula: IIF(!IsNull(Value),Value,0)+[Row-1:SUm]" type="Int32" />
+            <Field description="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" name="StartSumSq" source="Formula: IIF(!IsNull(Value),Value*Value,0)+[Row-1:SumSq]" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#1">
+      <Origin ToolID="26" Connection="Action" />
+      <Destination ToolID="8" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="8" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="8" Connection="Right" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="27" Connection="Action" />
+      <Destination ToolID="8" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="22" Connection="Action" />
+      <Destination ToolID="4" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="23" Connection="Action" />
+      <Destination ToolID="5" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="9" Connection="Source" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="8" Connection="Join" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="8" Connection="Left" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="21" Connection="Action" />
+      <Destination ToolID="3" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="15" Connection="Question" />
+      <Destination ToolID="16" Connection="Question" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="15" Connection="Question" />
+      <Destination ToolID="18" Connection="Question Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="16" Connection="Action" />
+      <Destination ToolID="13" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="19" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="20" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="21" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="22" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="23" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="26" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="27" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="19" Connection="Action" />
+      <Destination ToolID="12" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="20" Connection="Action" />
+      <Destination ToolID="11" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="30" Connection="Question" />
+      <Destination ToolID="31" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="31" Connection="Action" />
+      <Destination ToolID="7" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (15)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (17)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>List Box (18)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Numeric Up Down (30)</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (32)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Rolling Window Sums</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>ReverseFieldMap</Type>
+              <Description />
+              <ToolId value="16" />
+              <Variable />
+              <SelectTool value="-1" />
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="19" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>12</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateRawXml</Type>
+              <Description />
+              <ToolId value="20" />
+              <Expression>IIF(IsNull([#1]) or [#1] = '',
+'',
+'&lt;Field field="'
++ Replace([#1], '|', '" /&gt;&lt;Field field="') + 
+'" /&gt;')</Expression>
+              <Destination>11/GroupByFields</Destination>
+              <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>UpdateRawXml</Type>
+              <Description />
+              <ToolId value="21" />
+              <Expression>IIF(IsNull([#1]) or [#1] = '',
+'',
+'&lt;Field field="'
++ Replace([#1], '|', '" /&gt;&lt;Field field="') + 
+'" /&gt;')</Expression>
+              <Destination>3/GroupByFields</Destination>
+              <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>UpdateRawXml</Type>
+              <Description />
+              <ToolId value="22" />
+              <Expression>IIF(IsNull([#1]) or [#1] = '',
+'',
+'&lt;Field field="'
++ Replace([#1], '|', '" /&gt;&lt;Field field="') + 
+'" /&gt;')</Expression>
+              <Destination>4/GroupByFields</Destination>
+              <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>UpdateRawXml</Type>
+              <Description />
+              <ToolId value="23" />
+              <Expression>IIF(IsNull([#1]) or [#1] = '',
+'',
+'&lt;Field field="'
++ Replace([#1], '|', '" /&gt;&lt;Field field="') + 
+'" /&gt;')</Expression>
+              <Destination>5/GroupByFields</Destination>
+              <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>UpdateRawXml</Type>
+              <Description />
+              <ToolId value="26" />
+              <Expression>'&lt;Field field="RecordID" /&gt;' + 
+IIF(IsNull([#1]) or [#1] = '',
+'',
+'&lt;Field field="'
++ Replace([#1], '|', '" /&gt;&lt;Field field="') + 
+'" /&gt;')</Expression>
+              <Destination>8/JoinInfo[2]</Destination>
+              <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>UpdateRawXml</Type>
+              <Description />
+              <ToolId value="27" />
+              <Expression>'&lt;Field field="StartRecordID" /&gt;' + 
+IIF(IsNull([#1]) or [#1] = '',
+'',
+'&lt;Field field="'
++ Replace([#1], '|', '" /&gt;&lt;Field field="') + 
+'" /&gt;')</Expression>
+              <Destination>8/JoinInfo[1]</Destination>
+              <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="31" />
+              <Expression>{{INPUT}}</Expression>
+              <Destination>7/Data/r[1]/c[1]</Destination>
+              <Mapping>Update Cell</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>row	1
+column	1</DynamicConfiguration>
+              <DefaultConfiguration value="True" />
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (14)</Name>
+          <ToolId value="14" />
+          <Questions>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (17)</Description>
+              <Name>Macro Output (17)</Name>
+              <ToolId value="17" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (15)</Description>
+              <Name>Macro Input (15)</Name>
+              <ToolId value="15" />
+            </Question>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Window Size (records)</Description>
+              <Name>Numeric Up Down (30)</Name>
+              <ToolId value="30" />
+              <Minimum value="0" />
+              <Maximum value="100000" />
+              <Increment value="1" />
+              <Default value="10" />
+              <Decimals value="0" />
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Grouping Fields (optional)</Description>
+              <Name>List Box (18)</Name>
+              <ToolId value="18" />
+              <Multiple value="True" />
+              <Multiple_Custom value="True" />
+              <Multiple_Start />
+              <Multiple_Separator>|</Multiple_Separator>
+              <Multiple_End />
+              <Multiple_Default value="False" />
+              <Mode>MacroField</Mode>
+              <MacroField_InputTool value="0" />
+              <Field_IncludeNone value="False" />
+              <MacroField_FilterTypes>Bool,Byte,Int16,Int32,Int64,FixedDecimal,Float,Double,String,WString,V_String,V_WString,Date,Time,DateTime,Blob,SpatialObj</MacroField_FilterTypes>
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (32)</Description>
+              <Name>Macro Output (32)</Name>
+              <ToolId value="32" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="True" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="15" Selected="True" />
+        <Tool ToolId="17" Selected="True" />
+        <Tool ToolId="32" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

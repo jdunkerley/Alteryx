@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Directory.Directory">
+        <Position x="102" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Directory>C:\Program Files\Alteryx\bin</Directory>
+          <FileSpec>*.*</FileSpec>
+          <IncludeSubDirs value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>dir C:\Program Files\Alteryx\bin\*.*</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FullPath" size="32767" source="Directory:" type="V_WString" />
+            <Field name="Directory" size="32767" source="Directory:" type="V_WString" />
+            <Field name="FileName" size="260" source="Directory:" type="V_WString" />
+            <Field name="ShortFileName" size="14" source="Directory:" type="V_WString" />
+            <Field name="CreationTime" source="Directory:" type="DateTime" />
+            <Field name="LastAccessTime" source="Directory:" type="DateTime" />
+            <Field name="LastWriteTime" source="Directory:" type="DateTime" />
+            <Field name="Size" source="Directory:" type="Int64" />
+            <Field name="AttributeArchive" source="Directory:" type="Bool" />
+            <Field name="AttributeCompressed" source="Directory:" type="Bool" />
+            <Field name="AttributeEncrypted" source="Directory:" type="Bool" />
+            <Field name="AttributeHidden" source="Directory:" type="Bool" />
+            <Field name="AttributeNormal" source="Directory:" type="Bool" />
+            <Field name="AttributeOffline" source="Directory:" type="Bool" />
+            <Field name="AttributeReadonly" source="Directory:" type="Bool" />
+            <Field name="AttributeReparsePoint" source="Directory:" type="Bool" />
+            <Field name="AttributeSparseFile" source="Directory:" type="Bool" />
+            <Field name="AttributeSystem" source="Directory:" type="Bool" />
+            <Field name="AttributeTemporary" source="Directory:" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDirectory" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="54" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="234" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output6</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="210" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="210" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="4" Connection="Question" />
+      <Destination ToolID="5" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="5" Connection="Action" />
+      <Destination ToolID="2" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="9" Connection="Action" />
+      <Destination ToolID="2" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="8" Connection="Question" />
+      <Destination ToolID="9" Connection="Question" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (4)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (6)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>BatchDirectory</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="5" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>2/Directory</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="9" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>2/FileSpec</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (3)</Name>
+          <ToolId value="3" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Directories</Description>
+              <Name>Control Parameter (4)</Name>
+              <ToolId value="4" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (6)</Description>
+              <Name>Macro Output (6)</Name>
+              <ToolId value="6" />
+            </Question>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Filters</Description>
+              <Name>Control Parameter (8)</Name>
+              <ToolId value="8" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (4)</Name>
+            <Description>Directories</Description>
+          </ControlParam>
+          <ControlParam>
+            <Name>Control Parameter (8)</Name>
+            <Description>Filters</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="6" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

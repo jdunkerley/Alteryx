@@ -1,0 +1,1 @@
+{"_type":"ns2:RoutingServiceErrorType","type":"ApplicationError","subtype":"InvalidInputData","details":"Incorrect value","additionalData":[{"key":"linkattributes","value":"all\""}],"metaInfo":{"timestamp":"2016-05-04T07:19:47Z","mapVersion":"8.30.62.151","moduleVersion":"7.2.68.0-14232","interfaceVersion":"2.6.24"}}
